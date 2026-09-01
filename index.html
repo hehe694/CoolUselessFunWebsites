@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Websites For When You're Bored & Useless Websites 🌀🧀</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #0f0c20;
+            color: #ffffff;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        /* LIQUID BACKGROUND LAYERS */
+        .liquid-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+            pointer-events: none;
+        }
+
+        .liquid-layer {
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+            filter: blur(60px);
+            opacity: 0.45;
+            animation: morph 12s infinite ease-in-out alternate;
+        }
+
+        .layer-1 {
+            background: linear-gradient(45deg, #ff4757, #ff6b81);
+            top: -100px;
+            left: -100px;
+            animation-duration: 10s;
+        }
+
+        .layer-2 {
+            background: linear-gradient(45deg, #70a1ff, #1e90ff);
+            bottom: -150px;
+            right: -100px;
+            animation-duration: 14s;
+            animation-delay: -3s;
+        }
+
+        .layer-3 {
+            background: linear-gradient(45deg, #2ed573, #7bed9f);
+            top: 40%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation-duration: 16s;
+            animation-delay: -6s;
+            opacity: 0.3;
+        }
+
+        @keyframes morph {
+            0% {
+                border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+                transform: rotate(0deg) scale(1);
+            }
+            50% {
+                border-radius: 70% 30% 50% 50% / 30% 60% 40% 70%;
+                transform: rotate(180deg) scale(1.2);
+            }
+            100% {
+                border-radius: 30% 70% 30% 70% / 50% 30% 70% 40%;
+                transform: rotate(360deg) scale(0.9);
+            }
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            background: rgba(255, 71, 87, 0.25);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 40px 20px;
+            border-radius: 20px;
+            margin-bottom: 25px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            width: 100%;
+            max-width: 850px;
+            box-sizing: border-box;
+        }
+
+        .hero h1 {
+            margin: 0 0 15px 0;
+            font-size: 2.3rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            color: #ffffff;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 25px;
+            color: #f1f2f6;
+        }
+
+        .big-btn {
+            background-color: #ffffff;
+            color: #ff4757;
+            font-size: 1.3rem;
+            font-weight: bold;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            transition: all 0.2s ease-in-out;
+        }
+
+        .big-btn:hover {
+            transform: scale(1.08);
+            background-color: #ffeaa7;
+            color: #d63031;
+        }
+
+        /* Search Bar */
+        .search-container {
+            width: 100%;
+            max-width: 600px;
+            margin-bottom: 30px;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 15px 25px;
+            font-size: 1.1rem;
+            border-radius: 30px;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            background-color: rgba(30, 30, 30, 0.75);
+            backdrop-filter: blur(10px);
+            color: #ffffff;
+            outline: none;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+            transition: border-color 0.2s, box-shadow 0.2s;
+            box-sizing: border-box;
+        }
+
+        .search-input:focus {
+            border-color: #ff4757;
+            box-shadow: 0 0 15px rgba(255, 71, 87, 0.5);
+        }
+
+        .no-results {
+            display: none;
+            color: #ff4757;
+            font-size: 1.2rem;
+            margin-top: 20px;
+        }
+
+        /* Grid section for cards */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+            width: 100%;
+            max-width: 1200px;
+        }
+
+        .card {
+            background-color: rgba(30, 30, 45, 0.7);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(255, 71, 87, 0.3);
+            border-color: rgba(255, 71, 87, 0.4);
+        }
+
+        .card h3 {
+            margin-top: 0;
+            color: #70a1ff;
+        }
+
+        .card p {
+            font-size: 0.9em;
+            color: #ccc;
+            flex-grow: 1;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: #ff4757;
+            color: white;
+            text-decoration: none;
+            padding: 10px 15px;
+            border-radius: 6px;
+            text-align: center;
+            font-weight: bold;
+            margin-top: 15px;
+            transition: background-color 0.2s;
+        }
+
+        .btn:hover {
+            background-color: #ff6b81;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="liquid-container">
+        <div class="liquid-layer layer-1"></div>
+        <div class="liquid-layer layer-2"></div>
+        <div class="liquid-layer layer-3"></div>
+    </div>
+
+    <div class="hero">
+        <h1>Websites For When You're Bored & Useless Websites 🌀</h1>
+        <p>Bored out of your mind? Click the button to take you to a random site!</p>
+        <button class="big-btn" onclick="openRandomSite()">PLEASE (Take Me to a Random Site) 🎲</button>
+    </div>
+
+    <div class="search-container">
+        <input type="text" id="searchInput" class="search-input" placeholder="🔍 Search websites by name or description..." onkeyup="filterSites()">
+    </div>
+
+    <div id="noResults" class="no-results">No websites found matching your search! 🧀</div>
+
+    <div class="grid-container" id="gridContainer">
+
+        <div class="card">
+            <h3>Bouncing DVD Logo</h3>
+            <p>Watch the iconic DVD logo bounce off the screen edges! Will it finally hit the corner? Pure satisfying nostalgia 📀 hit the corner hype!</p>
+            <a href="https://bouncingdvdlogo.com/" target="_blank" class="btn">Visit Site</a>
+        </div>
+
+        <div class="card">
+            <h3>The Useless Web</h3>
+            <p>The OG random website portal! Click the magic button and get teleported into absolute internet weirdness 🌀 surprise me!</p>
+            <a href="https://theuselessweb.com/" target="_blank" class="btn">Visit Site</a>
+        </div>
+
+        <div class="card">
+            <h3>Neal.fun (Main Hub)</h3>
+            <p>The ultimate sanctuary of quirky web experiments, interactive web games, and creative toys crafted by Neal Agarwal! 🚀✨</p>
+            <a href="https://neal.fun/" target="_blank" class="btn">Visit Site</a>
+        </div>
+
+        <div class="card">
+            <h3>Poki.com</h3>
+            <p>The ultimate online playground! Play thousands of free web games instantly without downloading anything 🎮⚡</p>
+            <a href="https://poki.com/" target="_blank" class="btn">Visit Site</a>
+        </div>
+
+        <div class="card">
+            <h3>CrazyGames</h3>
+            <p>Massive browser game portal packed with action, platformers, multiplayer games, and unblocked fun! 🕹️🔥</p>
+            <a href="https://www.crazygames.com/" target="_blank" class="btn">Visit Site</a>
+        </div>
+
+        <div class="card">
+            <h3>Infinite Craft (Neal.fun)</h3>
+            <p>Start with Water, Fire, Wind, and Earth to combine anything and everything into endless discoveries! 🧩🔥💧</p>
+            <a href="https://neal.fun/infinite-craft/" target="_blank" class="btn">Visit Site</a>
+        </div>
+
+        <div class="card">
+            <h3>The Password Game (Neal.fun)</h3>
+            <p>Please choose a password. Simple right? Prepare to obey rules that get increasingly unhinged and chaotic 🔐🤯</p>
+            <a href="https://neal.fun/password-game/" target="_blank" class="btn">Visit Site</a>
+        </div>
+
+        <div class="card">
+            <h3>Spend Bill Gates' Money (Neal.fun)</h3>
+            <p>Got billions burning a hole in your pocket? Try spending all of Bill Gates' money on jet fighters, NBA teams, and big Macs 💰🛍️</p>
+            <a href="https://neal.fun/spend/" target="_blank" class="btn">Visit Site</a>
+        </div>
+
+        <div class="card">
+            <h3>Asteroid Launcher (Neal.fun)</h3>
+            <p>Nuke any city on Earth with custom asteroids and calculate the devastating physics crater impact! ☄️💥</p>
+            <a href="https://neal.fun/asteroid-launcher/" target="_blank" class="btn">Visit Site</a>
+        </div>
+
+        <div class="card">
+            <h3>Design the Next iPhone (Neal.fun)</h3>
+            <p>Slap 10 camera lenses, a headphone jack, a steering wheel, and a fidget spinner onto an iPhone 📱🤡</p>
+            <a href="https://neal.fun/design-the-next-iphone/" target="_blank" class="btn">Visit Site</a>
+        </div>
+
+        <div class="card">
+            <h3>The Deep Sea (Neal.fun)</h3>
+            <p>Scroll down all the way to the bottom of the ocean and meet the terrifying creatures living in the abyssal zone 🌊🦑</p>
+            <a href="https://neal.fun/deep-sea/" target="_blank" class="btn">Visit Site</a>
+        </div>
+
+        <div class="card">
+            <h3>Absurd Trolley Problems (Neal.fun)</h3>
+            <p>Classic ethics trolley dilemma turned into a hilarious multi-level philosophical nightmare 🚃⚖️</p>
+            <a href="https://neal.fun/absurd-trolley-problems/" target="_blank" class="btn">Visit Site</a>
+        </div>
+
+        <div class="card">
+            <h3>Wonders of Street View (Neal.fun)</h3>
+            <p>Teleport to the weirdest, funniest, and most unexpected places ever captured on Google Maps! 🗺️👀</p>
+            <a href="https://neal.fun/wonders-of-street-view/" target="_blank" class="btn">Visit Site</a>
+        </div>
+
+        <div class="card">
+            <h3>Draw a Perfect Circle (Neal.fun)</h3>
+            <p>Test how steady your hand is! Try to draw a 100% smooth circle and get scored by AI ⭕✏️</p>
+            <a href="https://neal.fun/perfect-circle/" target="_blank" class="btn">Visit Site</a>
+        </div>
+
+        <div class="card">
+            <h3>The Size of Space (Neal.fun)</h3>
+            <p>Scroll out from an astronaut to giant stars, galaxies, and the entire observable universe 🌌🚀</p>
+            <a href="https://neal.fun/size-of-space/" target="_blank" class="btn">Visit Site</a>
+        </div>
+
+        <div class="card">
+            <h3>Draw Logos From Memory (Neal.fun)</h3>
+            <p>Think you know famous company logos? Draw McDonald's or Apple from memory and see how bad you fail 🎨🤡</p>
+            <a href="https://neal.fun/logos-from-memory/" target="_blank" class="btn">Visit Site</a>
+        </div>
+
+        <div class="card">
+            <h3>Space Elevator (Neal.fun)</h3>
+            <p>Ride an elevator high up into earth's atmosphere and straight into outer space 🪐🛸</p>
+            <a href="https://neal.fun/space-elevator/" target="_blank" class="btn">Visit Site</a>
+        </div>
+
+        <div class="card">
+            <h3>Internet Artifacts (Neal.fun)</h3>
+            <p>An interactive digital museum showcasing ancient artifacts from the early days of the web 💻🏛️</p>
+            <a href="https://neal.fun/internet-artifacts/" target="_blank" class="btn">Visit Site</a>
+        </div>
+
+        <div class="card">
+            <h3>Ambient Chaos (Neal.fun)</h3>
+            <p>Mix relaxed ambient background sounds like campfire, rain, plane cabin, or chaotic restaurant noise 🎧🔊</p>
+            <a href="https://neal.fun/ambient-chaos/" target="_blank" class="btn">Visit Site</a>
+        </div>
+
+        <div class="card">
+            <h3>Sandboxels</h3>
+            <p>An awesome falling-sand chemistry simulator! Mix hundreds of elements, watch insane reactions, and trigger total chaos 🧪🔥 dynamic sand sandbox physics!</p>
+            <a href="https://neal.fun/sandboxels/" target="_blank" class="btn">Visit Site</a>
+        </div>
+
+        <div class="card">
+            <h3>Chef (R74n)</h3>
+            <p>Combine literally any ingredients to cook up crazy, chaotic recipes in your digital kitchen! Absolute peak culinary anarchy 👨‍🍳🧀</p>
+            <a href="https://r74n.com/cook/" target="_blank" class="btn">Visit Site</a>
+        </div>
+
+        <div class="card">
+            <h3>Ragebait Mini-Game</h3>
+            <p>A frustratingly hilarious mini-game specifically engineered to test your patience and unleash maximum rage! Try not to break your screen 🤬💥</p>
+            <a href="https://r74n.com/mini/ragebait" target="_blank" class="btn">Visit Site</a>
+        </div>
+
+        <div class="card">
+            <h3>Cheese RNG</h3>
+            <p>Roll the dice and test your luck to collect the rarest, most legendary cheeses out there! Absolute peak cheese vibes 🧀🎲✨</p>
+            <a href="https://hehe694.github.io/Cheese_RNG/" target="_blank" class="btn">Visit Site</a>
+        </div>
+
+        <div class="card">
+            <h3>Stick Clash</h3>
+            <p>An awesome stickman battle game! Clash with enemy armies, count your troops, and conquer the battlefield ⚔️🤖</p>
+            <a href="https://hehe694.github.io/Stick-Clash/" target="_blank" class="btn">Visit Site</a>
+        </div>
+
+        <div class="card">
+            <h3>Liquid Simulation (Grant Kot)</h3>
+            <p>Interactive fluid particle dynamics right in your browser! Play around with squishy interactive liquid physics 💧🧪</p>
+            <a href="https://grantkot.com/Liquid/" target="_blank" class="btn">Visit Site</a>
+        </div>
+
+        <div class="card">
+            <h3>Is it Christmas?</h3>
+            <p>Simple enough, this one tells you if it's Christmas or not using a giant "Yes" and "No".</p>
+            <a href="https://isitchristmas.com/" target="_blank" class="btn">Visit Site</a>
+        </div>
+
+        <div class="card">
+            <h3>Is Nickelback the Worst Band Ever?</h3>
+            <p>In the spirit of the first one, this one answers a serious question.</p>
+            <a href="https://isnickelbacktheworstbandever.tumblr.com/" target="_blank" class="btn">Visit Site</a>
+        </div>
+
+        <div class="card">
+            <h3>Is Margaret Thatcher Dead Yet?</h3>
+            <p>For those who are not sure if she is still amongst us.</p>
+            <a href="https://www.ismargaretthatcherdeadyet.co.uk/" target="_blank" class="btn">Visit Site</a>
+        </div>
+
+        <div class="card">
+            <h3>The Magic Button</h3>
+            <p>Make Everything OK - My personal favorite ✨</p>
+            <a href="https://make-everything-ok.com/" target="_blank" class="btn">Visit Site</a>
+        </div>
+
+        <div class="card">
+            <h3>The Dots</h3>
+            <p>Select a dot (red or green) and then click on it just to be informed that nothing happens. Awesome, right?</p>
+            <a href="http://www.ismycomputeron.com/" target="_blank" class="btn">Visit Site</a>
+        </div>
+
+        <div class="card">
+            <h3>Kim Jong-Il Looking At Things</h3>
+            <p>As you probably guessed, this is a collection of pictures of Kim Jong-Il looking at stuff.</p>
+            <a href="https://kimjongillookingatthings.tumblr.com/" target="_blank" class="btn">Visit Site</a>
+        </div>
+
+        <div class="card">
+            <h3>Instant Rimshot</h3>
+            <p>Badum tss... 🥁</p>
+            <a href="https://instantrimshot.com/" target="_blank" class="btn">Visit Site</a>
+        </div>
+
+        <div class="card">
+            <h3>Non-Stop Nyan Cat!</h3>
+            <p>It's a non-stop Nyan Cat! You can even share how much time you spent watching it 🐱🌈</p>
+            <a href="https://www.nyan.cat/" target="_blank" class="btn">Visit Site</a>
+        </div>
+
+        <div class="card">
+            <h3>A dot for each second</h3>
+            <p>I don't know why!</p>
+            <a href="http://adotforeachsecond.com/" target="_blank" class="btn">Visit Site</a>
+        </div>
+
+        <div class="card">
+            <h3>Rainymood</h3>
+            <p>Maybe not that pointless after all. It helps you focus, relax and sleep 🌧️</p>
+            <a href="https://rainymood.com/" target="_blank" class="btn">Visit Site</a>
+        </div>
+
+        <div class="card">
+            <h3>Do Nothing For 2 Minutes</h3>
+            <p>I dare you!</p>
+            <a href="https://www.donothingfor2minutes.com/" target="_blank" class="btn">Visit Site</a>
+        </div>
+
+        <div class="card">
+            <h3>Blank</h3>
+            <p>As the name states, it's a blank page.</p>
+            <a href="about:blank" target="_blank" class="btn">Visit Site</a>
+        </div>
+
+        <div class="card">
+            <h3>Is my computer on?</h3>
+            <p>If you're not sure 💻</p>
+            <a href="http://www.ismycomputeron.com/" target="_blank" class="btn">Visit Site</a>
+        </div>
+
+        <div class="card">
+            <h3>iHug.You</h3>
+            <p>Send digital hugs to your friends! 🤗</p>
+            <a href="http://ihug.you.com/" target="_blank" class="btn">Visit Site</a>
+        </div>
+
+        <div class="card">
+            <h3>Heeeeeeeey</h3>
+            <p>Go to next.</p>
+            <a href="https://heeeeeeeey.com/" target="_blank" class="btn">Visit Site</a>
+        </div>
+
+        <div class="card">
+            <h3>Hooooooooo</h3>
+            <p>Go to prev.</p>
+            <a href="http://hooooooooo.com/" target="_blank" class="btn">Visit Site</a>
+        </div>
+
+        <div class="card">
+            <h3>Ees slap!</h3>
+            <p>Wanna slap someone with an eel? Here you go! 🐟</p>
+            <a href="https://eelslap.com/" target="_blank" class="btn">Visit Site</a>
+        </div>
+
+        <div class="card">
+            <h3>Move now think later</h3>
+            <p>Watch someone play a game of checkers very quickly.</p>
+            <a href="http://movenowthinklater.com/" target="_blank" class="btn">Visit Site</a>
+        </div>
+
+        <div class="card">
+            <h3>Koalas to the Max</h3>
+            <p>Turn a single big circle into a cute koala just because 🐨</p>
+            <a href="https://www.koalastothemax.com/" target="_blank" class="btn">Visit Site</a>
+        </div>
+
+        <div class="card">
+            <h3>Random Colour</h3>
+            <p>You will see a random color each time. Guaranteed!</p>
+            <a href="https://randomcolour.com/" target="_blank" class="btn">Visit Site</a>
+        </div>
+
+        <div class="card">
+            <h3>Has the LHC destroyed the world yet?</h3>
+            <p>For those who are not sure.</p>
+            <a href="https://hasthelargehadroncolliderdestroyedtheworldyet.com/" target="_blank" class="btn">Visit Site</a>
+        </div>
+
+        <div class="card">
+            <h3>Pointer Pointer</h3>
+            <p>One of my favorites! It shows a photo of someone pointing at your cursor 👉</p>
+            <a href="https://pointerpointer.com/" target="_blank" class="btn">Visit Site</a>
+        </div>
+
+        <div class="card">
+            <h3>Find the Invisible Cow</h3>
+            <p>Can you? 🐮</p>
+            <a href="https://findtheinvisiblecow.com/" target="_blank" class="btn">Visit Site</a>
+        </div>
+
+        <div class="card">
+            <h3>Hacker Typer</h3>
+            <p>Start hacking it! 👨‍💻</p>
+            <a href="https://hackertyper.net/" target="_blank" class="btn">Visit Site</a>
+        </div>
+
+        <div class="card">
+            <h3>Staggering Beauty</h3>
+            <p>Make the worm dance with your mouse. (Warning: Flashing images.)</p>
+            <a href="http://www.staggeringbeauty.com/" target="_blank" class="btn">Visit Site</a>
+        </div>
+
+        <div class="card">
+            <h3>Bees Bees Bees</h3>
+            <p>This one reveals Oprah's secret plans 🐝</p>
+            <a href="https://beesbeesbees.com/" target="_blank" class="btn">Visit Site</a>
+        </div>
+
+        <div class="card">
+            <h3>Don't even reply</h3>
+            <p>Emails from an a**hole</p>
+            <a href="https://www.dontevenreply.com/" target="_blank" class="btn">Visit Site</a>
+        </div>
+
+        <div class="card">
+            <h3>Shut up and take my money</h3>
+            <p>All the stuff you don't need by want so bad. At one place 💳</p>
+            <a href="https://shutupandtakemymoney.com/" target="_blank" class="btn">Visit Site</a>
+        </div>
+
+        <div class="card">
+            <h3>Wikipedia's List of Dogs</h3>
+            <p>Wikipedia is a great resource... sometimes for useless stuff 🐶</p>
+            <a href="https://en.wikipedia.org/wiki/List_of_individual_dogs" target="_blank" class="btn">Visit Site</a>
+        </div>
+
+        <div class="card">
+            <h3>Astronomy Picture of the Day</h3>
+            <p>Fascinating! 🌌</p>
+            <a href="https://apod.nasa.gov/" target="_blank" class="btn">Visit Site</a>
+        </div>
+
+        <div class="card">
+            <h3>Passive-Aggressive Password Checker</h3>
+            <p>Check your password's strength and prepare to be mocked.</p>
+            <a href="https://password.fail/" target="_blank" class="btn">Visit Site</a>
+        </div>
+
+        <div class="card">
+            <h3>Grandpa Clothes</h3>
+            <p>Do not click on the black rectangle!</p>
+            <a href="http://grandpaclothes.com/" target="_blank" class="btn">Visit Site</a>
+        </div>
+
+        <div class="card">
+            <h3>Sometimes Red Sometimes Blue</h3>
+            <p>Yes, that's it 🔴🔵</p>
+            <a href="http://sometimesredsometimesblue.com/" target="_blank" class="btn">Visit Site</a>
+        </div>
+
+        <div class="card">
+            <h3>Patience is a Virtue</h3>
+            <p>How much time can you waste?</p>
+            <a href="http://www.patience-is-a-virtue.org/" target="_blank" class="btn">Visit Site</a>
+        </div>
+
+        <div class="card">
+            <h3>Rock Paper Scissors</h3>
+            <p>Wanna play? ✂️</p>
+            <a href="https://www.wrpsa.com/" target="_blank" class="btn">Visit Site</a>
+        </div>
+
+        <div class="card">
+            <h3>The End of the Internet</h3>
+            <p>Congrats! You made it! 🏁</p>
+            <a href="https://hobo-king.com/end-of-internet/" target="_blank" class="btn">Visit Site</a>
+        </div>
+
+        <div class="card">
+            <h3>Fuck Yeah Button</h3>
+            <p>Button for making "Fuck Yeah!" sounds and animations! 🔥</p>
+            <a href="http://fuckyeahbutton.com/" target="_blank" class="btn">Visit Site</a>
+        </div>
+
+        <div class="card">
+            <h3>Endless Horse</h3>
+            <p>An astonishingly tall horse 🐴</p>
+            <a href="http://endless.horse/" target="_blank" class="btn">Visit Site</a>
+        </div>
+
+        <div class="card">
+            <h3>leave page</h3>
+            <p>Just leave the page and see the reaction 👋</p>
+            <a href="http://leavepage.com/" target="_blank" class="btn">Visit Site</a>
+        </div>
+
+        <div class="card">
+            <h3>I am Bored Site</h3>
+            <p>Bored? Press the Enjoy button and get instantly transported to fascinating corners of the internet.</p>
+            <a href="https://www.iambored.com/" target="_blank" class="btn">Visit Site</a>
+        </div>
+
+        <div class="card">
+            <h3>Powerful Websites You Should Know</h3>
+            <p>Powerful websites you should know — a curated catalog of the most useful tools on the internet.</p>
+            <a href="https://powerfulwebsitesyoushouldknow.com/" target="_blank" class="btn">Visit Site</a>
+        </div>
+
+        <div class="card">
+            <h3>Prank My Face</h3>
+            <p>Create a fake AI face-twin finder link and prank a friend with the reveal 😜</p>
+            <a href="https://prankmyface.com/" target="_blank" class="btn">Visit Site</a>
+        </div>
+
+        <div class="card">
+            <h3>crzy.site</h3>
+            <p>A growing collection of absolutely pointless single-page websites. Each one dumber than the last 🤪</p>
+            <a href="https://crzy.site/" target="_blank" class="btn">Visit Site</a>
+        </div>
+
+        <div class="card">
+            <h3>Trynkit</h3>
+            <p>A grab-bag of silly toys — meme makers, novelty love/zodiac calculators and quizzes.</p>
+            <a href="https://trynkit.com/" target="_blank" class="btn">Visit Site</a>
+        </div>
+
+        <div class="card">
+            <h3>DVD Screensaver Maker</h3>
+            <p>Recreates the classic bouncing DVD logo screensaver in your browser.</p>
+            <a href="https://dvd-screensaver.com/" target="_blank" class="btn">Visit Site</a>
+        </div>
+
+        <div class="card">
+            <h3>Boring Websites</h3>
+            <p>A webring of small, deliberately useless websites; press random and fall through them 🥱</p>
+            <a href="https://boringwebsites.com/" target="_blank" class="btn">Visit Site</a>
+        </div>
+
+        <div class="card">
+            <h3>Paper Toilet</h3>
+            <p>Roll through an infinite roll of digital toilet paper. Amazingly satisfying! 🧻</p>
+            <a href="http://www.papertoilet.com/" target="_blank" class="btn">Visit Site</a>
+        </div>
+
+        <div class="card">
+            <h3>Corn Dog On A Stick</h3>
+            <p>Watch a corn dog spin endlessly to catchy ambient music. Pure internet gold 🌭</p>
+            <a href="http://corndogonastick.com/" target="_blank" class="btn">Visit Site</a>
+        </div>
+
+        <div class="card">
+            <h3>Corgi Orgy</h3>
+            <p>An endless parade of bouncing, animated Corgi GIFs! 🐶 Party time!</p>
+            <a href="http://corgiorgy.com/" target="_blank" class="btn">Visit Site</a>
+        </div>
+
+        <div class="card">
+            <h3>ZomboCom</h3>
+            <p>Welcome to ZomboCom! The only limit is your imagination. Anything is possible! 🎧</p>
+            <a href="https://html5zombocom.com/" target="_blank" class="btn">Visit Site</a>
+        </div>
+
+        <div class="card">
+            <h3>Falling Falling</h3>
+            <p>An endless loop of hypnotic falling blocks with infinite glissando audio sounds 🌀</p>
+            <a href="http://www.fallingfalling.com/" target="_blank" class="btn">Visit Site</a>
+        </div>
+
+        <div class="card">
+            <h3>DOGE Weather</h3>
+            <p>Much rain. Very temperature. Wow. Get your weather report delivered by Doge! 🐕</p>
+            <a href="http://dogeweather.com/" target="_blank" class="btn">Visit Site</a>
+        </div>
+
+        <div class="card">
+            <h3>Cat Bounce</h3>
+            <p>Make high-res cats bounce around your screen using physical gravity vectors 🐈</p>
+            <a href="https://cat-bounce.com/" target="_blank" class="btn">Visit Site</a>
+        </div>
+
+        <div class="card">
+            <h3>Ninja Flex</h3>
+            <p>Flex your keyboard muscles and watch a pixelated ninja pull crazy moves! 🥷</p>
+            <a href="http://ninjaflex.com/" target="_blank" class="btn">Visit Site</a>
+        </div>
+
+    </div>
+
+    <script>
+        // Live Filter Function
+        function filterSites() {
+            const query = document.getElementById('searchInput').value.toLowerCase().trim();
+            const cards = document.querySelectorAll('.card');
+            let visibleCount = 0;
+
+            cards.forEach(card => {
+                const title = card.querySelector('h3').textContent.toLowerCase();
+                const description = card.querySelector('p').textContent.toLowerCase();
+
+                if (title.includes(query) || description.includes(query)) {
+                    card.style.display = 'flex';
+                    visibleCount++;
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+
+            const noResults = document.getElementById('noResults');
+            noResults.style.display = visibleCount === 0 ? 'block' : 'none';
+        }
+
+        // Random Site Generator
+        function openRandomSite() {
+            const cards = Array.from(document.querySelectorAll('.card'));
+            const visibleCards = cards.filter(card => card.style.display !== 'none');
+            const targetCards = visibleCards.length > 0 ? visibleCards : cards;
+
+            const randomIndex = Math.floor(Math.random() * targetCards.length);
+            const link = targetCards[randomIndex].querySelector('.btn').getAttribute('href');
+            window.open(link, '_blank');
+        }
+    </script>
+</body>
+</html>
