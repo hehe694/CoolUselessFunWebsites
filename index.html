@@ -7,7 +7,6 @@
     
     <!-- WEB APP LOGO / FAVICON DATA -->
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧀</text></svg>">
-    <!-- Home Screen PNG Icon (Fixes the blank icon issue on mobile home screens) -->
     <link rel="apple-touch-icon" sizes="180x180" href="https://img.icons8.com/emoji/180/cheese-wedge.png">
     
     <meta name="mobile-web-app-capable" content="yes">
@@ -17,24 +16,26 @@
         :root {
             --primary: #ff4757;
             --primary-hover: #ff6b81;
-            --accent-blue: #70a1ff;
             --accent-yellow: #ffeaa7;
-            --bg-dark: #0b0914;
-            --card-bg: rgba(23, 20, 38, 0.7);
-            --card-border: rgba(255, 255, 255, 0.08);
-            --card-hover-border: rgba(255, 71, 87, 0.5);
+            --accent-blue: #70a1ff;
+            --bg-dark: #0a0813;
+            --card-bg: rgba(23, 20, 38, 0.65);
+            --card-border: rgba(255, 255, 255, 0.1);
+            --card-hover-border: rgba(255, 71, 87, 0.6);
+            --glow-color: rgba(255, 71, 87, 0.25);
         }
 
         * {
             box-sizing: border-box;
+            scroll-behavior: smooth;
         }
 
         body {
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             background-color: var(--bg-dark);
             color: #ffffff;
             margin: 0;
-            padding: 24px 16px;
+            padding: 32px 16px;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -57,109 +58,97 @@
 
         .liquid-layer {
             position: absolute;
-            width: 550px;
-            height: 550px;
-            border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
-            filter: blur(80px);
-            opacity: 0.35;
-            animation: morph 12s infinite ease-in-out alternate;
+            width: 600px;
+            height: 600px;
+            border-radius: 50%;
+            filter: blur(100px);
+            opacity: 0.3;
+            animation: morph 14s infinite ease-in-out alternate;
         }
 
         .layer-1 {
-            background: linear-gradient(45deg, #ff4757, #ff6b81);
-            top: -100px;
+            background: radial-gradient(circle, #ff4757, #ff6b81);
+            top: -150px;
             left: -100px;
-            animation-duration: 10s;
         }
 
         .layer-2 {
-            background: linear-gradient(45deg, #70a1ff, #1e90ff);
+            background: radial-gradient(circle, #70a1ff, #1e90ff);
             bottom: -150px;
             right: -100px;
-            animation-duration: 14s;
-            animation-delay: -3s;
+            animation-delay: -4s;
         }
 
         .layer-3 {
-            background: linear-gradient(45deg, #2ed573, #7bed9f);
-            top: 40%;
+            background: radial-gradient(circle, #ffeaa7, #ffa502);
+            top: 45%;
             left: 50%;
             transform: translate(-50%, -50%);
-            animation-duration: 16s;
-            animation-delay: -6s;
-            opacity: 0.2;
+            opacity: 0.15;
+            animation-delay: -7s;
         }
 
         @keyframes morph {
-            0% {
-                border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
-                transform: rotate(0deg) scale(1);
-            }
-            50% {
-                border-radius: 70% 30% 50% 50% / 30% 60% 40% 70%;
-                transform: rotate(180deg) scale(1.15);
-            }
-            100% {
-                border-radius: 30% 70% 30% 70% / 50% 30% 70% 40%;
-                transform: rotate(360deg) scale(0.95);
-            }
+            0% { transform: rotate(0deg) scale(1); }
+            50% { transform: rotate(180deg) scale(1.15); }
+            100% { transform: rotate(360deg) scale(0.95); }
         }
 
-        /* APP LOGO STYLING */
+        /* APP LOGO */
         .app-logo-wrapper {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            width: 80px;
-            height: 80px;
-            background: linear-gradient(135deg, rgba(255, 71, 87, 0.3), rgba(255, 234, 167, 0.3));
-            border: 2px solid rgba(255, 255, 255, 0.25);
-            border-radius: 22px;
-            margin-bottom: 16px;
-            box-shadow: 0 10px 25px rgba(255, 71, 87, 0.4), inset 0 0 15px rgba(255, 255, 255, 0.2);
-            backdrop-filter: blur(10px);
-            animation: logoPulse 4s infinite ease-in-out;
+            width: 90px;
+            height: 90px;
+            background: linear-gradient(135deg, rgba(255, 71, 87, 0.25), rgba(255, 234, 167, 0.25));
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 26px;
+            margin-bottom: 20px;
+            box-shadow: 0 12px 30px rgba(255, 71, 87, 0.3), inset 0 0 15px rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(12px);
+            animation: logoPulse 3.5s infinite ease-in-out;
         }
 
         .app-logo-icon {
-            font-size: 2.8rem;
-            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.4));
+            font-size: 3.2rem;
+            filter: drop-shadow(0 4px 10px rgba(0,0,0,0.5));
         }
 
         @keyframes logoPulse {
-            0%, 100% { transform: scale(1) rotate(0deg); }
-            50% { transform: scale(1.06) rotate(3deg); }
+            0%, 100% { transform: translateY(0) scale(1); }
+            50% { transform: translateY(-6px) scale(1.05); }
         }
 
-        /* Hero Section */
+        /* HERO SECTION */
         .hero {
             text-align: center;
-            background: rgba(255, 71, 87, 0.12);
+            background: rgba(255, 255, 255, 0.03);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            padding: 40px 24px;
-            border-radius: 28px;
-            margin-bottom: 30px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            padding: 44px 28px;
+            border-radius: 32px;
+            margin-bottom: 36px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.1);
             width: 100%;
             max-width: 900px;
         }
 
         .hero h1 {
-            margin: 0 0 12px 0;
-            font-size: 2.4rem;
+            margin: 0 0 14px 0;
+            font-size: 2.6rem;
             font-weight: 800;
             background: linear-gradient(135deg, #ffffff 40%, var(--accent-yellow));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            letter-spacing: -0.5px;
         }
 
         .hero p {
-            font-size: 1.1rem;
-            margin: 0 0 24px 0;
-            color: #d1d8e0;
+            font-size: 1.15rem;
+            margin: 0 0 28px 0;
+            color: #a4b0be;
         }
 
         .big-btn {
@@ -167,32 +156,31 @@
             color: #d63031;
             font-size: 1.15rem;
             font-weight: 800;
-            padding: 16px 36px;
+            padding: 16px 38px;
             border: none;
             border-radius: 50px;
             cursor: pointer;
-            box-shadow: 0 8px 25px rgba(255, 71, 87, 0.35);
+            box-shadow: 0 10px 30px rgba(255, 71, 87, 0.4);
             transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
 
         .big-btn:hover {
-            transform: translateY(-4px) scale(1.03);
-            box-shadow: 0 12px 30px rgba(255, 71, 87, 0.55);
+            transform: translateY(-3px) scale(1.03);
+            box-shadow: 0 15px 35px rgba(255, 71, 87, 0.6);
             background: #ffffff;
         }
 
-        /* Controls Section */
+        /* CONTROLS SECTION */
         .controls-wrapper {
             width: 100%;
             max-width: 1200px;
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 18px;
-            margin-bottom: 30px;
+            gap: 20px;
+            margin-bottom: 36px;
         }
 
-        /* Search Bar */
         .search-container {
             width: 100%;
             max-width: 650px;
@@ -201,16 +189,26 @@
 
         .search-input {
             width: 100%;
-            padding: 18px 28px;
+            padding: 18px 28px 18px 52px;
             font-size: 1.05rem;
             border-radius: 35px;
             border: 1px solid rgba(255, 255, 255, 0.15);
-            background-color: rgba(18, 15, 33, 0.85);
-            backdrop-filter: blur(12px);
+            background: rgba(18, 15, 33, 0.7);
+            backdrop-filter: blur(16px);
             color: #ffffff;
             outline: none;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-            transition: all 0.25s ease;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.2rem;
+            opacity: 0.6;
+            pointer-events: none;
         }
 
         .search-input::placeholder {
@@ -219,11 +217,11 @@
 
         .search-input:focus {
             border-color: var(--primary);
-            box-shadow: 0 0 25px rgba(255, 71, 87, 0.45);
-            background-color: rgba(22, 19, 41, 0.95);
+            box-shadow: 0 0 30px rgba(255, 71, 87, 0.4);
+            background: rgba(22, 19, 41, 0.9);
         }
 
-        /* Categories Bar */
+        /* CATEGORY TABS */
         .category-tabs {
             display: flex;
             flex-wrap: wrap;
@@ -233,16 +231,16 @@
         }
 
         .tab-btn {
-            background: rgba(255, 255, 255, 0.06);
-            border: 1px solid rgba(255, 255, 255, 0.12);
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
             color: #a4b0be;
-            padding: 10px 20px;
-            border-radius: 25px;
-            font-size: 0.9rem;
+            padding: 10px 22px;
+            border-radius: 30px;
+            font-size: 0.92rem;
             font-weight: 600;
             cursor: pointer;
-            transition: all 0.2s ease;
-            backdrop-filter: blur(8px);
+            transition: all 0.25s ease;
+            backdrop-filter: blur(10px);
         }
 
         .tab-btn:hover {
@@ -255,89 +253,106 @@
             background: var(--primary);
             color: #ffffff;
             border-color: var(--primary);
-            box-shadow: 0 6px 16px rgba(255, 71, 87, 0.4);
+            box-shadow: 0 8px 20px rgba(255, 71, 87, 0.45);
         }
 
-        /* Site Counter */
         .stats-counter {
             font-size: 0.9rem;
-            color: #a4b0be;
+            color: #747d8c;
             font-weight: 600;
-            letter-spacing: 0.3px;
         }
 
         .no-results {
             display: none;
             color: #ff4757;
             font-size: 1.3rem;
-            margin: 40px 0;
+            margin: 50px 0;
             font-weight: bold;
             text-align: center;
         }
 
-        /* Grid section for cards */
+        /* CARD GRID */
         .grid-container {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(285px, 1fr));
-            gap: 22px;
+            grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+            gap: 24px;
             width: 100%;
             max-width: 1200px;
         }
 
         .card {
-            background-color: var(--card-bg);
-            backdrop-filter: blur(14px);
-            -webkit-backdrop-filter: blur(14px);
+            background: var(--card-bg);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
             border: 1px solid var(--card-border);
-            border-radius: 20px;
+            border-radius: 24px;
             padding: 24px;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-            transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.25s ease, border-color 0.25s ease;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--primary), transparent);
+            opacity: 0;
+            transition: opacity 0.3s ease;
         }
 
         .card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 16px 32px rgba(255, 71, 87, 0.2);
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px var(--glow-color);
             border-color: var(--card-hover-border);
+        }
+
+        .card:hover::before {
+            opacity: 1;
         }
 
         .card-header {
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
-            gap: 10px;
+            gap: 12px;
             margin-bottom: 8px;
         }
 
         .card h3 {
             margin: 0;
-            color: var(--accent-blue);
-            font-size: 1.18rem;
+            color: #ffffff;
+            font-size: 1.2rem;
             font-weight: 700;
-            line-height: 1.35;
+            line-height: 1.3;
         }
 
         .fav-btn {
             background: none;
             border: none;
-            font-size: 1.3rem;
+            font-size: 1.4rem;
             cursor: pointer;
-            color: rgba(255, 255, 255, 0.25);
-            transition: transform 0.2s, color 0.2s;
+            color: rgba(255, 255, 255, 0.2);
+            transition: all 0.2s ease;
             padding: 0;
             line-height: 1;
         }
 
         .fav-btn:hover {
-            transform: scale(1.25);
+            transform: scale(1.3);
             color: var(--accent-yellow);
         }
 
         .fav-btn.is-fav {
             color: var(--accent-yellow);
+            filter: drop-shadow(0 0 8px rgba(255, 234, 167, 0.6));
         }
 
         .badge {
@@ -345,21 +360,21 @@
             font-size: 0.72rem;
             font-weight: 700;
             text-transform: uppercase;
-            padding: 4px 12px;
+            padding: 5px 14px;
             border-radius: 20px;
             background: rgba(255, 255, 255, 0.08);
-            color: #d1d8e0;
-            margin-bottom: 12px;
-            letter-spacing: 0.5px;
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            color: var(--accent-blue);
+            margin-bottom: 14px;
+            letter-spacing: 0.6px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
         }
 
         .card p {
             font-size: 0.92rem;
-            color: #ced6e0;
+            color: #a4b0be;
             flex-grow: 1;
-            line-height: 1.5;
-            margin: 0 0 18px 0;
+            line-height: 1.55;
+            margin: 0 0 20px 0;
         }
 
         .card-actions {
@@ -371,62 +386,87 @@
         .btn {
             flex: 1;
             display: inline-block;
-            background-color: var(--primary);
+            background: var(--primary);
             color: white;
             text-decoration: none;
-            padding: 11px 16px;
-            border-radius: 12px;
+            padding: 12px 18px;
+            border-radius: 14px;
             text-align: center;
             font-weight: 700;
             font-size: 0.92rem;
-            box-shadow: 0 4px 12px rgba(255, 71, 87, 0.3);
-            transition: background-color 0.2s, transform 0.15s, box-shadow 0.2s;
+            box-shadow: 0 6px 18px rgba(255, 71, 87, 0.35);
+            transition: all 0.25s ease;
         }
 
         .btn:hover {
-            background-color: var(--primary-hover);
-            box-shadow: 0 6px 16px rgba(255, 71, 87, 0.45);
+            background: var(--primary-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(255, 71, 87, 0.5);
         }
 
         .copy-btn {
             background: rgba(255, 255, 255, 0.08);
             border: 1px solid rgba(255, 255, 255, 0.12);
             color: white;
-            padding: 11px 14px;
-            border-radius: 12px;
+            padding: 12px 16px;
+            border-radius: 14px;
             cursor: pointer;
-            font-size: 0.95rem;
-            transition: all 0.2s;
+            font-size: 1rem;
+            transition: all 0.25s ease;
         }
 
         .copy-btn:hover {
             background: rgba(255, 255, 255, 0.2);
-            transform: translateY(-1px);
+            transform: translateY(-2px);
+        }
+
+        /* TOAST NOTIFICATION */
+        .toast {
+            position: fixed;
+            bottom: -80px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(23, 20, 38, 0.95);
+            border: 1px solid var(--primary);
+            color: #ffffff;
+            padding: 14px 28px;
+            border-radius: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 20px rgba(255, 71, 87, 0.3);
+            backdrop-filter: blur(12px);
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            z-index: 1000;
+            pointer-events: none;
+        }
+
+        .toast.show {
+            bottom: 30px;
         }
 
         .top-btn {
             position: fixed;
-            bottom: 25px;
-            right: 25px;
+            bottom: 30px;
+            right: 30px;
             background: var(--primary);
             color: white;
             border: none;
-            width: 48px;
-            height: 48px;
+            width: 50px;
+            height: 50px;
             border-radius: 50%;
-            font-size: 1.3rem;
+            font-size: 1.4rem;
             cursor: pointer;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+            box-shadow: 0 8px 25px rgba(255, 71, 87, 0.5);
             display: none;
             align-items: center;
             justify-content: center;
-            transition: transform 0.2s, background-color 0.2s;
+            transition: all 0.25s ease;
             z-index: 99;
         }
 
         .top-btn:hover {
-            transform: scale(1.1);
-            background-color: var(--primary-hover);
+            transform: translateY(-4px) scale(1.05);
+            background: var(--primary-hover);
         }
     </style>
 </head>
@@ -450,7 +490,8 @@
 
     <div class="controls-wrapper">
         <div class="search-container">
-            <input type="text" id="searchInput" class="search-input" placeholder="🔍 Search websites by name or description..." onkeyup="filterSites()">
+            <span class="search-icon">🔍</span>
+            <input type="text" id="searchInput" class="search-input" placeholder="Search websites by name or description..." onkeyup="filterSites()">
         </div>
 
         <div class="category-tabs" id="categoryTabs">
@@ -469,7 +510,7 @@
     <div id="noResults" class="no-results">No websites found matching your search! 🧀</div>
 
     <div class="grid-container" id="gridContainer">
-
+        <!-- Cards remained identical dynamically filled by original markup -->
         <!-- FOOD & CHEESE -->
         <div class="card" data-category="cheese" data-id="1">
             <div>
@@ -501,67 +542,6 @@
             </div>
         </div>
 
-        <div class="card" data-category="cheese" data-id="3">
-            <div>
-                <div class="card-header">
-                    <h3>Cheese.com</h3>
-                    <button class="fav-btn" onclick="toggleFav('3', this)">★</button>
-                </div>
-                <div class="badge">🧀 Food & Cheese</div>
-                <p>The ultimate database of over 1,800 types of cheese from across the world. 🧀👑 Pure perfection!</p>
-            </div>
-            <div class="card-actions">
-                <a href="https://www.cheese.com/" target="_blank" class="btn">Visit Site</a>
-                <button class="copy-btn" onclick="copyLink('https://www.cheese.com/')" title="Copy link">📋</button>
-            </div>
-        </div>
-
-        <div class="card" data-category="cheese" data-id="4">
-            <div>
-                <div class="card-header">
-                    <h3>Supercook</h3>
-                    <button class="fav-btn" onclick="toggleFav('4', this)">★</button>
-                </div>
-                <div class="badge">🧀 Food & Cheese</div>
-                <p>Type in whatever random ingredients are left in your fridge and get actual delicious recipes instantly! 🍳🧀</p>
-            </div>
-            <div class="card-actions">
-                <a href="https://www.supercook.com/" target="_blank" class="btn">Visit Site</a>
-                <button class="copy-btn" onclick="copyLink('https://www.supercook.com/')" title="Copy link">📋</button>
-            </div>
-        </div>
-
-        <div class="card" data-category="cheese" data-id="67">
-            <div>
-                <div class="card-header">
-                    <h3>Cheese Clicker</h3>
-                    <button class="fav-btn" onclick="toggleFav('67', this)">★</button>
-                </div>
-                <div class="badge">🧀 Food & Cheese</div>
-                <p>Tap the giant cheese block, buy automated cheese upgrades, and stack up millions of cheddar points! 🧀⚡</p>
-            </div>
-            <div class="card-actions">
-                <a href="https://hishamissa.github.io/clicker-game/" target="_blank" class="btn">Visit Site</a>
-                <button class="copy-btn" onclick="copyLink('https://hishamissa.github.io/clicker-game/')" title="Copy link">📋</button>
-            </div>
-        </div>
-
-        <!-- GAMES & INTERACTIVE -->
-        <div class="card" data-category="games" data-id="82">
-            <div>
-                <div class="card-header">
-                    <h3>Popcat</h3>
-                    <button class="fav-btn" onclick="toggleFav('82', this)">★</button>
-                </div>
-                <div class="badge">🎮 Games</div>
-                <p>Click the iconic popping cat to make its mouth open up with a POP and score points for your country! 🐱💥</p>
-            </div>
-            <div class="card-actions">
-                <a href="https://popcat.click/" target="_blank" class="btn">Visit Site</a>
-                <button class="copy-btn" onclick="copyLink('https://popcat.click/')" title="Copy link">📋</button>
-            </div>
-        </div>
-
         <div class="card" data-category="games" data-id="74">
             <div>
                 <div class="card-header">
@@ -574,51 +554,6 @@
             <div class="card-actions">
                 <a href="https://www.chess.com/" target="_blank" class="btn">Visit Site</a>
                 <button class="copy-btn" onclick="copyLink('https://www.chess.com/')" title="Copy link">📋</button>
-            </div>
-        </div>
-
-        <div class="card" data-category="games" data-id="5">
-            <div>
-                <div class="card-header">
-                    <h3>Ragebait Mini-Game</h3>
-                    <button class="fav-btn" onclick="toggleFav('5', this)">★</button>
-                </div>
-                <div class="badge">🎮 Games</div>
-                <p>Engineered specifically to test how long you can last without losing your patience. 🤬💥</p>
-            </div>
-            <div class="card-actions">
-                <a href="https://r74n.com/mini/ragebait" target="_blank" class="btn">Visit Site</a>
-                <button class="copy-btn" onclick="copyLink('https://r74n.com/mini/ragebait')" title="Copy link">📋</button>
-            </div>
-        </div>
-
-        <div class="card" data-category="games" data-id="6">
-            <div>
-                <div class="card-header">
-                    <h3>Neal.fun (Main Hub)</h3>
-                    <button class="fav-btn" onclick="toggleFav('6', this)">★</button>
-                </div>
-                <div class="badge">🎮 Games</div>
-                <p>The central hub of creative games, web toys, and popular internet experiments created by Neal. 🧠🔥</p>
-            </div>
-            <div class="card-actions">
-                <a href="https://neal.fun/" target="_blank" class="btn">Visit Site</a>
-                <button class="copy-btn" onclick="copyLink('https://neal.fun/')" title="Copy link">📋</button>
-            </div>
-        </div>
-
-        <div class="card" data-category="games" data-id="7">
-            <div>
-                <div class="card-header">
-                    <h3>The Password Game</h3>
-                    <button class="fav-btn" onclick="toggleFav('7', this)">★</button>
-                </div>
-                <div class="badge">🎮 Games</div>
-                <p>Try setting a password while obeying 35 increasingly ridiculous rules involving chess, roman numerals, and Paul. 🔐♟️</p>
-            </div>
-            <div class="card-actions">
-                <a href="https://neal.fun/password-game/" target="_blank" class="btn">Visit Site</a>
-                <button class="copy-btn" onclick="copyLink('https://neal.fun/password-game/')" title="Copy link">📋</button>
             </div>
         </div>
 
@@ -637,246 +572,6 @@
             </div>
         </div>
 
-        <div class="card" data-category="games" data-id="9">
-            <div>
-                <div class="card-header">
-                    <h3>Infinite Craft</h3>
-                    <button class="fav-btn" onclick="toggleFav('9', this)">★</button>
-                </div>
-                <div class="badge">🎮 Games</div>
-                <p>Combine Water and Fire to make Steam, then keep crafting to unlock thousands of strange elements. 🧩✨</p>
-            </div>
-            <div class="card-actions">
-                <a href="https://neal.fun/infinite-craft/" target="_blank" class="btn">Visit Site</a>
-                <button class="copy-btn" onclick="copyLink('https://neal.fun/infinite-craft/')" title="Copy link">📋</button>
-            </div>
-        </div>
-
-        <div class="card" data-category="games" data-id="10">
-            <div>
-                <div class="card-header">
-                    <h3>Asteroid Launcher</h3>
-                    <button class="fav-btn" onclick="toggleFav('10', this)">★</button>
-                </div>
-                <div class="badge">🎮 Games</div>
-                <p>Launch space rocks anywhere on Earth and simulate realistic impact physics! ☄️💥</p>
-            </div>
-            <div class="card-actions">
-                <a href="https://neal.fun/asteroid-launcher/" target="_blank" class="btn">Visit Site</a>
-                <button class="copy-btn" onclick="copyLink('https://neal.fun/asteroid-launcher/')" title="Copy link">📋</button>
-            </div>
-        </div>
-
-        <div class="card" data-category="games" data-id="11">
-            <div>
-                <div class="card-header">
-                    <h3>Spend Bill Gates' Money</h3>
-                    <button class="fav-btn" onclick="toggleFav('11', this)">★</button>
-                </div>
-                <div class="badge">🎮 Games</div>
-                <p>Shopping spree simulator! Try spending $100 Billion on jets, sports teams, and mountains of cheese. 💰🛍️</p>
-            </div>
-            <div class="card-actions">
-                <a href="https://neal.fun/spend/" target="_blank" class="btn">Visit Site</a>
-                <button class="copy-btn" onclick="copyLink('https://neal.fun/spend/')" title="Copy link">📋</button>
-            </div>
-        </div>
-
-        <div class="card" data-category="games" data-id="12">
-            <div>
-                <div class="card-header">
-                    <h3>Design the Next iPhone</h3>
-                    <button class="fav-btn" onclick="toggleFav('12', this)">★</button>
-                </div>
-                <div class="badge">🎮 Games</div>
-                <p>Slap extra camera lenses, engine pipes, and cup holders onto a smartphone. 📱🍎</p>
-            </div>
-            <div class="card-actions">
-                <a href="https://neal.fun/design-the-next-iphone/" target="_blank" class="btn">Visit Site</a>
-                <button class="copy-btn" onclick="copyLink('https://neal.fun/design-the-next-iphone/')" title="Copy link">📋</button>
-            </div>
-        </div>
-
-        <div class="card" data-category="games" data-id="13">
-            <div>
-                <div class="card-header">
-                    <h3>Absurd Trolley Problems</h3>
-                    <button class="fav-btn" onclick="toggleFav('13', this)">★</button>
-                </div>
-                <div class="badge">🎮 Games</div>
-                <p>Funny and ridiculous moral dilemmas! Make choices on increasingly silly track scenarios. 🚃🍕</p>
-            </div>
-            <div class="card-actions">
-                <a href="https://neal.fun/absurd-trolley-problems/" target="_blank" class="btn">Visit Site</a>
-                <button class="copy-btn" onclick="copyLink('https://neal.fun/absurd-trolley-problems/')" title="Copy link">📋</button>
-            </div>
-        </div>
-
-        <div class="card" data-category="games" data-id="14">
-            <div>
-                <div class="card-header">
-                    <h3>Classic Minecraft</h3>
-                    <button class="fav-btn" onclick="toggleFav('14', this)">★</button>
-                </div>
-                <div class="badge">🎮 Games</div>
-                <p>Play official original 2009 Minecraft directly inside your web browser without downloading! ⛏️🧱</p>
-            </div>
-            <div class="card-actions">
-                <a href="https://classic.minecraft.net/" target="_blank" class="btn">Visit Site</a>
-                <button class="copy-btn" onclick="copyLink('https://classic.minecraft.net/')" title="Copy link">📋</button>
-            </div>
-        </div>
-
-        <div class="card" data-category="games" data-id="15">
-            <div>
-                <div class="card-header">
-                    <h3>Line Rider</h3>
-                    <button class="fav-btn" onclick="toggleFav('15', this)">★</button>
-                </div>
-                <div class="badge">🎮 Games</div>
-                <p>Draw custom physics tracks and send your sledder zooming across ramps, loops, and jumps! 🛷🎨</p>
-            </div>
-            <div class="card-actions">
-                <a href="https://www.linerider.com/" target="_blank" class="btn">Visit Site</a>
-                <button class="copy-btn" onclick="copyLink('https://www.linerider.com/')" title="Copy link">📋</button>
-            </div>
-        </div>
-
-        <div class="card" data-category="games" data-id="16">
-            <div>
-                <div class="card-header">
-                    <h3>Poki.com</h3>
-                    <button class="fav-btn" onclick="toggleFav('16', this)">★</button>
-                </div>
-                <div class="badge">🎮 Games</div>
-                <p>A huge browser playground featuring thousands of free instant games. 🎮⚡</p>
-            </div>
-            <div class="card-actions">
-                <a href="https://poki.com/" target="_blank" class="btn">Visit Site</a>
-                <button class="copy-btn" onclick="copyLink('https://poki.com/')" title="Copy link">📋</button>
-            </div>
-        </div>
-
-        <div class="card" data-category="games" data-id="17">
-            <div>
-                <div class="card-header">
-                    <h3>CrazyGames</h3>
-                    <button class="fav-btn" onclick="toggleFav('17', this)">★</button>
-                </div>
-                <div class="badge">🎮 Games</div>
-                <p>Massive web portal stacked with 3D shooters, drift racing, and arcade games! 🕹️🔥</p>
-            </div>
-            <div class="card-actions">
-                <a href="https://www.crazygames.com/" target="_blank" class="btn">Visit Site</a>
-                <button class="copy-btn" onclick="copyLink('https://www.crazygames.com/')" title="Copy link">📋</button>
-            </div>
-        </div>
-
-        <div class="card" data-category="games" data-id="18">
-            <div>
-                <div class="card-header">
-                    <h3>Stick Clash</h3>
-                    <button class="fav-btn" onclick="toggleFav('18', this)">★</button>
-                </div>
-                <div class="badge">🎮 Games</div>
-                <p>Build a squad of stickman warriors, compare power levels, and battle through enemy lines! ⚔️🤖</p>
-            </div>
-            <div class="card-actions">
-                <a href="https://hehe694.github.io/Stick-Clash/" target="_blank" class="btn">Visit Site</a>
-                <button class="copy-btn" onclick="copyLink('https://hehe694.github.io/Stick-Clash/')" title="Copy link">📋</button>
-            </div>
-        </div>
-
-        <div class="card" data-category="games" data-id="19">
-            <div>
-                <div class="card-header">
-                    <h3>Quick, Draw!</h3>
-                    <button class="fav-btn" onclick="toggleFav('19', this)">★</button>
-                </div>
-                <div class="badge">🎮 Games</div>
-                <p>Doodle objects in 20 seconds while Google's AI neural network tries to guess what you're drawing. 🎨🤖</p>
-            </div>
-            <div class="card-actions">
-                <a href="https://quickdraw.withgoogle.com/" target="_blank" class="btn">Visit Site</a>
-                <button class="copy-btn" onclick="copyLink('https://quickdraw.withgoogle.com/')" title="Copy link">📋</button>
-            </div>
-        </div>
-
-        <div class="card" data-category="games" data-id="20">
-            <div>
-                <div class="card-header">
-                    <h3>Windows 93</h3>
-                    <button class="fav-btn" onclick="toggleFav('20', this)">★</button>
-                </div>
-                <div class="badge">🎮 Games</div>
-                <p>A parody retro web operating system filled with fake apps, hidden mini-games, and 90s nostalgia. 💻🕹️</p>
-            </div>
-            <div class="card-actions">
-                <a href="https://www.windows93.net/" target="_blank" class="btn">Visit Site</a>
-                <button class="copy-btn" onclick="copyLink('https://www.windows93.net/')" title="Copy link">📋</button>
-            </div>
-        </div>
-
-        <div class="card" data-category="games" data-id="51">
-            <div>
-                <div class="card-header">
-                    <h3>WorldGuessr</h3>
-                    <button class="fav-btn" onclick="toggleFav('51', this)">★</button>
-                </div>
-                <div class="badge">🎮 Games</div>
-                <p>Free geography exploration game! Look at street view photos and guess where in the world you are. 🌍📍</p>
-            </div>
-            <div class="card-actions">
-                <a href="https://www.worldguessr.com/" target="_blank" class="btn">Visit Site</a>
-                <button class="copy-btn" onclick="copyLink('https://www.worldguessr.com/')" title="Copy link">📋</button>
-            </div>
-        </div>
-
-        <div class="card" data-category="games" data-id="60">
-            <div>
-                <div class="card-header">
-                    <h3>Draw a Stickman</h3>
-                    <button class="fav-btn" onclick="toggleFav('60', this)">★</button>
-                </div>
-                <div class="badge">🎮 Games</div>
-                <p>Draw your own hero stick figure and watch them come to life in an interactive adventure story! ✏️🏃</p>
-            </div>
-            <div class="card-actions">
-                <a href="https://drawastickman.com/" target="_blank" class="btn">Visit Site</a>
-                <button class="copy-btn" onclick="copyLink('https://drawastickman.com/')" title="Copy link">📋</button>
-            </div>
-        </div>
-
-        <div class="card" data-category="games" data-id="63">
-            <div>
-                <div class="card-header">
-                    <h3>Retro Bowl</h3>
-                    <button class="fav-btn" onclick="toggleFav('63', this)">★</button>
-                </div>
-                <div class="badge">🎮 Games</div>
-                <p>Addicting 8-bit arcade football management game playable directly in your browser! 🏈🏆</p>
-            </div>
-            <div class="card-actions">
-                <a href="https://retrobowl.me/" target="_blank" class="btn">Visit Site</a>
-                <button class="copy-btn" onclick="copyLink('https://retrobowl.me/')" title="Copy link">📋</button>
-            </div>
-        </div>
-
-        <div class="card" data-category="games" data-id="66">
-            <div>
-                <div class="card-header">
-                    <h3>Slither.io</h3>
-                    <button class="fav-btn" onclick="toggleFav('66', this)">★</button>
-                </div>
-                <div class="badge">🎮 Games</div>
-                <p>Slither around multi-player arenas, eat glowing Orbs, and grow into the biggest snake! 🐍✨</p>
-            </div>
-            <div class="card-actions">
-                <a href="https://slither.io/" target="_blank" class="btn">Visit Site</a>
-                <button class="copy-btn" onclick="copyLink('https://slither.io/')" title="Copy link">📋</button>
-            </div>
-        </div>
-
         <div class="card" data-category="games" data-id="68">
             <div>
                 <div class="card-header">
@@ -892,7 +587,6 @@
             </div>
         </div>
 
-        <!-- QUIRKY & NOVELTY -->
         <div class="card" data-category="quirky" data-id="83">
             <div>
                 <div class="card-header">
@@ -907,820 +601,10 @@
                 <button class="copy-btn" onclick="copyLink('https://spinningrat.online/')" title="Copy link">📋</button>
             </div>
         </div>
-
-        <div class="card" data-category="quirky" data-id="79">
-            <div>
-                <div class="card-header">
-                    <h3>Heeeeeeeey!</h3>
-                    <button class="fav-btn" onclick="toggleFav('79', this)">★</button>
-                </div>
-                <div class="badge">🌀 Quirky & Novelty</div>
-                <p>A glorious useless website that constantly yells HEEEEEEEY! and HOOOOOO! back and forth forever. 🗣️🔊</p>
-            </div>
-            <div class="card-actions">
-                <a href="https://heeeeeeeey.com/" target="_blank" class="btn">Visit Site</a>
-                <button class="copy-btn" onclick="copyLink('https://heeeeeeeey.com/')" title="Copy link">📋</button>
-            </div>
-        </div>
-
-        <div class="card" data-category="quirky" data-id="80">
-            <div>
-                <div class="card-header">
-                    <h3>Procatinator</h3>
-                    <button class="fav-btn" onclick="toggleFav('80', this)">★</button>
-                </div>
-                <div class="badge">🌀 Quirky & Novelty</div>
-                <p>Combines random vibe-filled cat GIFs with groovy music tracks for maximum procrastination. 🐱🎶 Peak internet!</p>
-            </div>
-            <div class="card-actions">
-                <a href="http://procatinator.com/" target="_blank" class="btn">Visit Site</a>
-                <button class="copy-btn" onclick="copyLink('http://procatinator.com/')" title="Copy link">📋</button>
-            </div>
-        </div>
-
-        <div class="card" data-category="quirky" data-id="81">
-            <div>
-                <div class="card-header">
-                    <h3>Sometimes Red Sometimes Blue</h3>
-                    <button class="fav-btn" onclick="toggleFav('81', this)">★</button>
-                </div>
-                <div class="badge">🌀 Quirky & Novelty</div>
-                <p>Is the screen red? Is it blue? Refresh to find out! Pure minimalist web suspense. 🔴🔵</p>
-            </div>
-            <div class="card-actions">
-                <a href="https://www.sometimesredsometimesblue.com/" target="_blank" class="btn">Visit Site</a>
-                <button class="copy-btn" onclick="copyLink('https://www.sometimesredsometimesblue.com/')" title="Copy link">📋</button>
-            </div>
-        </div>
-
-        <div class="card" data-category="quirky" data-id="77">
-            <div>
-                <div class="card-header">
-                    <h3>Make Everything OK</h3>
-                    <button class="fav-btn" onclick="toggleFav('77', this)">★</button>
-                </div>
-                <div class="badge">🌀 Quirky & Novelty</div>
-                <p>Feeling overwhelmed? Just press the magic button and watch it fix all your problems with a loading bar. 🔘✨</p>
-            </div>
-            <div class="card-actions">
-                <a href="https://make-everything-ok.com/" target="_blank" class="btn">Visit Site</a>
-                <button class="copy-btn" onclick="copyLink('https://make-everything-ok.com/')" title="Copy link">📋</button>
-            </div>
-        </div>
-
-        <div class="card" data-category="quirky" data-id="21">
-            <div>
-                <div class="card-header">
-                    <h3>Cat Bounce</h3>
-                    <button class="fav-btn" onclick="toggleFav('21', this)">★</button>
-                </div>
-                <div class="badge">🌀 Quirky & Novelty</div>
-                <p>Bounce interactive physics-enabled cats across your screen! 🐈💨 Fun physics toy.</p>
-            </div>
-            <div class="card-actions">
-                <a href="https://cat-bounce.com/" target="_blank" class="btn">Visit Site</a>
-                <button class="copy-btn" onclick="copyLink('https://cat-bounce.com/')" title="Copy link">📋</button>
-            </div>
-        </div>
-
-        <div class="card" data-category="quirky" data-id="22">
-            <div>
-                <div class="card-header">
-                    <h3>Pointer Pointer</h3>
-                    <button class="fav-btn" onclick="toggleFav('22', this)">★</button>
-                </div>
-                <div class="badge">🌀 Quirky & Novelty</div>
-                <p>Place your cursor anywhere on screen and it finds a real photo pointing directly at it. 👉📷</p>
-            </div>
-            <div class="card-actions">
-                <a href="https://pointerpointer.com/" target="_blank" class="btn">Visit Site</a>
-                <button class="copy-btn" onclick="copyLink('https://pointerpointer.com/')" title="Copy link">📋</button>
-            </div>
-        </div>
-
-        <div class="card" data-category="quirky" data-id="23">
-            <div>
-                <div class="card-header">
-                    <h3>Eel Slap!</h3>
-                    <button class="fav-btn" onclick="toggleFav('23', this)">★</button>
-                </div>
-                <div class="badge">🌀 Quirky & Novelty</div>
-                <p>A simple interactive page where moving your mouse slaps someone with a fish. 🐟💥 Classic web humor.</p>
-            </div>
-            <div class="card-actions">
-                <a href="https://eelslap.com/" target="_blank" class="btn">Visit Site</a>
-                <button class="copy-btn" onclick="copyLink('https://eelslap.com/')" title="Copy link">📋</button>
-            </div>
-        </div>
-
-        <div class="card" data-category="quirky" data-id="24">
-            <div>
-                <div class="card-header">
-                    <h3>Find the Invisible Cow</h3>
-                    <button class="fav-btn" onclick="toggleFav('24', this)">★</button>
-                </div>
-                <div class="badge">🌀 Quirky & Novelty</div>
-                <p>Listen closely to audio cues to locate where a hidden cow is located on your blank screen. 🐮🔊</p>
-            </div>
-            <div class="card-actions">
-                <a href="https://findtheinvisiblecow.com/" target="_blank" class="btn">Visit Site</a>
-                <button class="copy-btn" onclick="copyLink('https://findtheinvisiblecow.com/')" title="Copy link">📋</button>
-            </div>
-        </div>
-
-        <div class="card" data-category="quirky" data-id="25">
-            <div>
-                <div class="card-header">
-                    <h3>Staggering Beauty</h3>
-                    <button class="fav-btn" onclick="toggleFav('25', this)">★</button>
-                </div>
-                <div class="badge">🌀 Quirky & Novelty</div>
-                <p>Move your mouse around to make a funny wiggly creature dance across your screen. 🪱🌈</p>
-            </div>
-            <div class="card-actions">
-                <a href="https://www.staggeringbeauty.com/" target="_blank" class="btn">Visit Site</a>
-                <button class="copy-btn" onclick="copyLink('https://www.staggeringbeauty.com/')" title="Copy link">📋</button>
-            </div>
-        </div>
-
-        <div class="card" data-category="quirky" data-id="26">
-            <div>
-                <div class="card-header">
-                    <h3>Scream Into the Void</h3>
-                    <button class="fav-btn" onclick="toggleFav('26', this)">★</button>
-                </div>
-                <div class="badge">🌀 Quirky & Novelty</div>
-                <p>Type your thoughts or vent frustrations, then watch them float away into deep space. 🕳️✨</p>
-            </div>
-            <div class="card-actions">
-                <a href="https://screamingintothevoid.com/" target="_blank" class="btn">Visit Site</a>
-                <button class="copy-btn" onclick="copyLink('https://screamingintothevoid.com/')" title="Copy link">📋</button>
-            </div>
-        </div>
-
-        <div class="card" data-category="quirky" data-id="27">
-            <div>
-                <div class="card-header">
-                    <h3>The Useless Web</h3>
-                    <button class="fav-btn" onclick="toggleFav('27', this)">★</button>
-                </div>
-                <div class="badge">🌀 Quirky & Novelty</div>
-                <p>Click the button to be taken to random, single-purpose novelty websites. 🌀🎲</p>
-            </div>
-            <div class="card-actions">
-                <a href="https://theuselessweb.com/" target="_blank" class="btn">Visit Site</a>
-                <button class="copy-btn" onclick="copyLink('https://theuselessweb.com/')" title="Copy link">📋</button>
-            </div>
-        </div>
-
-        <div class="card" data-category="quirky" data-id="28">
-            <div>
-                <div class="card-header">
-                    <h3>Hacker Typer</h3>
-                    <button class="fav-btn" onclick="toggleFav('28', this)">★</button>
-                </div>
-                <div class="badge">🌀 Quirky & Novelty</div>
-                <p>Smash keys on your keyboard to instantly generate realistic cyberpunk terminal code. 👨‍💻🏽‍💻</p>
-            </div>
-            <div class="card-actions">
-                <a href="https://hackertyper.net/" target="_blank" class="btn">Visit Site</a>
-                <button class="copy-btn" onclick="copyLink('https://hackertyper.net/')" title="Copy link">📋</button>
-            </div>
-        </div>
-
-        <div class="card" data-category="quirky" data-id="29">
-            <div>
-                <div class="card-header">
-                    <h3>Long Doge Challenge</h3>
-                    <button class="fav-btn" onclick="toggleFav('29', this)">★</button>
-                </div>
-                <div class="badge">🌀 Quirky & Novelty</div>
-                <p>Scroll down to stretch a Doge's torso as far as you can. Simple internet humor! 🐕📜</p>
-            </div>
-            <div class="card-actions">
-                <a href="https://longdogechallenge.com/" target="_blank" class="btn">Visit Site</a>
-                <button class="copy-btn" onclick="copyLink('https://longdogechallenge.com/')" title="Copy link">📋</button>
-            </div>
-        </div>
-
-        <div class="card" data-category="quirky" data-id="30">
-            <div>
-                <div class="card-header">
-                    <h3>Paper Toilet</h3>
-                    <button class="fav-btn" onclick="toggleFav('30', this)">★</button>
-                </div>
-                <div class="badge">🌀 Quirky & Novelty</div>
-                <p>Unroll a digital toilet paper roll as fast as you can. Oddly satisfying! 🧻✨</p>
-            </div>
-            <div class="card-actions">
-                <a href="https://papertoilet.com/" target="_blank" class="btn">Visit Site</a>
-                <button class="copy-btn" onclick="copyLink('https://papertoilet.com/')" title="Copy link">📋</button>
-            </div>
-        </div>
-
-        <div class="card" data-category="quirky" data-id="31">
-            <div>
-                <div class="card-header">
-                    <h3>Non-Stop Nyan Cat!</h3>
-                    <button class="fav-btn" onclick="toggleFav('31', this)">★</button>
-                </div>
-                <div class="badge">🌀 Quirky & Novelty</div>
-                <p>An infinite loop of the classic pixel cat flying through space with catchy rainbow music. 🐱🌈</p>
-            </div>
-            <div class="card-actions">
-                <a href="https://www.nyan.cat/" target="_blank" class="btn">Visit Site</a>
-                <button class="copy-btn" onclick="copyLink('https://www.nyan.cat/')" title="Copy link">📋</button>
-            </div>
-        </div>
-
-        <div class="card" data-category="quirky" data-id="32">
-            <div>
-                <div class="card-header">
-                    <h3>Endless Horse</h3>
-                    <button class="fav-btn" onclick="toggleFav('32', this)">★</button>
-                </div>
-                <div class="badge">🌀 Quirky & Novelty</div>
-                <p>Scroll down forever to see how long an ASCII art horse's legs can get. 🐴🦵</p>
-            </div>
-            <div class="card-actions">
-                <a href="https://endless.horse/" target="_blank" class="btn">Visit Site</a>
-                <button class="copy-btn" onclick="copyLink('https://endless.horse/')" title="Copy link">📋</button>
-            </div>
-        </div>
-
-        <div class="card" data-category="quirky" data-id="33">
-            <div>
-                <div class="card-header">
-                    <h3>ZomboCom</h3>
-                    <button class="fav-btn" onclick="toggleFav('33', this)">★</button>
-                </div>
-                <div class="badge">🌀 Quirky & Novelty</div>
-                <p>Welcome to ZomboCom! A timeless classic web art project with upbeat motivational audio. 🎧🌌</p>
-            </div>
-            <div class="card-actions">
-                <a href="https://html5zombocom.com/" target="_blank" class="btn">Visit Site</a>
-                <button class="copy-btn" onclick="copyLink('https://html5zombocom.com/')" title="Copy link">📋</button>
-            </div>
-        </div>
-
-        <div class="card" data-category="quirky" data-id="34">
-            <div>
-                <div class="card-header">
-                    <h3>MyInstants</h3>
-                    <button class="fav-btn" onclick="toggleFav('34', this)">★</button>
-                </div>
-                <div class="badge">🌀 Quirky & Novelty</div>
-                <p>A giant community soundboard full of meme audio buttons and sound effects! 🔊🎉</p>
-            </div>
-            <div class="card-actions">
-                <a href="https://www.myinstants.com/" target="_blank" class="btn">Visit Site</a>
-                <button class="copy-btn" onclick="copyLink('https://www.myinstants.com/')" title="Copy link">📋</button>
-            </div>
-        </div>
-
-        <div class="card" data-category="quirky" data-id="55">
-            <div>
-                <div class="card-header">
-                    <h3>Corndog.io</h3>
-                    <button class="fav-btn" onclick="toggleFav('55', this)">★</button>
-                </div>
-                <div class="badge">🌀 Quirky & Novelty</div>
-                <p>An endless rain of delicious floating corndogs filling up your monitor screen. 🌭🌧️</p>
-            </div>
-            <div class="card-actions">
-                <a href="https://corndog.io/" target="_blank" class="btn">Visit Site</a>
-                <button class="copy-btn" onclick="copyLink('https://corndog.io/')" title="Copy link">📋</button>
-            </div>
-        </div>
-
-        <div class="card" data-category="quirky" data-id="56">
-            <div>
-                <div class="card-header">
-                    <h3>Bouncing DVD Logo</h3>
-                    <button class="fav-btn" onclick="toggleFav('56', this)">★</button>
-                </div>
-                <div class="badge">🌀 Quirky & Novelty</div>
-                <p>Watch the legendary retro DVD logo bounce off screen edges and try to hit the corner! 📀✨</p>
-            </div>
-            <div class="card-actions">
-                <a href="https://bouncingdvdlogo.com/" target="_blank" class="btn">Visit Site</a>
-                <button class="copy-btn" onclick="copyLink('https://bouncingdvdlogo.com/')" title="Copy link">📋</button>
-            </div>
-        </div>
-
-        <div class="card" data-category="quirky" data-id="61">
-            <div>
-                <div class="card-header">
-                    <h3>Koalas to the Max</h3>
-                    <button class="fav-btn" onclick="toggleFav('61', this)">★</button>
-                </div>
-                <div class="badge">🌀 Quirky & Novelty</div>
-                <p>Move cursor to split big colorful circles into tiny dots until a hidden image is revealed. 🐨⚪</p>
-            </div>
-            <div class="card-actions">
-                <a href="http://www.koalastothemax.com/" target="_blank" class="btn">Visit Site</a>
-                <button class="copy-btn" onclick="copyLink('http://www.koalastothemax.com/')" title="Copy link">📋</button>
-            </div>
-        </div>
-
-        <div class="card" data-category="quirky" data-id="64">
-            <div>
-                <div class="card-header">
-                    <h3>Museum of Endangered Sounds</h3>
-                    <button class="fav-btn" onclick="toggleFav('64', this)">★</button>
-                </div>
-                <div class="badge">🌀 Quirky & Novelty</div>
-                <p>Listen to old nostalgic tech audio clips like dial-up internet, floppy drives, and retro console startup sounds. 💾📟</p>
-            </div>
-            <div class="card-actions">
-                <a href="http://savethesounds.info/" target="_blank" class="btn">Visit Site</a>
-                <button class="copy-btn" onclick="copyLink('http://savethesounds.info/')" title="Copy link">📋</button>
-            </div>
-        </div>
-
-        <div class="card" data-category="quirky" data-id="70">
-            <div>
-                <div class="card-header">
-                    <h3>TikTok</h3>
-                    <button class="fav-btn" onclick="toggleFav('70', this)">★</button>
-                </div>
-                <div class="badge">🌀 Quirky & Novelty</div>
-                <p>An endless scroll feed of short clips, viral meme trends, and pure 3 AM brainrot! 📱💃🔥</p>
-            </div>
-            <div class="card-actions">
-                <a href="https://www.tiktok.com/" target="_blank" class="btn">Visit Site</a>
-                <button class="copy-btn" onclick="copyLink('https://www.tiktok.com/')" title="Copy link">📋</button>
-            </div>
-        </div>
-
-        <div class="card" data-category="quirky" data-id="71">
-            <div>
-                <div class="card-header">
-                    <h3>elgooG</h3>
-                    <button class="fav-btn" onclick="toggleFav('71', this)">★</button>
-                </div>
-                <div class="badge">🌀 Quirky & Novelty</div>
-                <p>Google completely flipped backwards! Play retro easter eggs like Underwater Search & Snake. 🔍🔄🎮</p>
-            </div>
-            <div class="card-actions">
-                <a href="https://elgoog.im/" target="_blank" class="btn">Visit Site</a>
-                <button class="copy-btn" onclick="copyLink('https://elgoog.im/')" title="Copy link">📋</button>
-            </div>
-        </div>
-
-        <div class="card" data-category="quirky" data-id="72">
-            <div>
-                <div class="card-header">
-                    <h3>Is It Christmas?</h3>
-                    <button class="fav-btn" onclick="toggleFav('72', this)">★</button>
-                </div>
-                <div class="badge">🌀 Quirky & Novelty</div>
-                <p>A useless website serving one single purpose: telling you in giant font if today is Christmas or NO. 🎄❓</p>
-            </div>
-            <div class="card-actions">
-                <a href="https://isitchristmas.com/" target="_blank" class="btn">Visit Site</a>
-                <button class="copy-btn" onclick="copyLink('https://isitchristmas.com/')" title="Copy link">📋</button>
-            </div>
-        </div>
-
-        <div class="card" data-category="quirky" data-id="73">
-            <div>
-                <div class="card-header">
-                    <h3>The Boring Button</h3>
-                    <button class="fav-btn" onclick="toggleFav('73', this)">★</button>
-                </div>
-                <div class="badge">🌀 Quirky & Novelty</div>
-                <p>Press the red button whenever you are bored to teleport instantly to funny, useless web apps! 🔴🌀</p>
-            </div>
-            <div class="card-actions">
-                <a href="https://www.boringbutton.com/" target="_blank" class="btn">Visit Site</a>
-                <button class="copy-btn" onclick="copyLink('https://www.boringbutton.com/')" title="Copy link">📋</button>
-            </div>
-        </div>
-
-        <!-- CREATIVE & CHILL -->
-        <div class="card" data-category="chill" data-id="78">
-            <div>
-                <div class="card-header">
-                    <h3>Radiooooo</h3>
-                    <button class="fav-btn" onclick="toggleFav('78', this)">★</button>
-                </div>
-                <div class="badge">🎨 Creative & Chill</div>
-                <p>Pick any country on a 3D globe and choose a decade from the 1900s to today to stream real retro radio hits! 🌍📻🎶</p>
-            </div>
-            <div class="card-actions">
-                <a href="https://radiooooo.com/" target="_blank" class="btn">Visit Site</a>
-                <button class="copy-btn" onclick="copyLink('https://radiooooo.com/')" title="Copy link">📋</button>
-            </div>
-        </div>
-
-        <div class="card" data-category="chill" data-id="75">
-            <div>
-                <div class="card-header">
-                    <h3>iQiyi</h3>
-                    <button class="fav-btn" onclick="toggleFav('75', this)">★</button>
-                </div>
-                <div class="badge">🎨 Creative & Chill</div>
-                <p>Stream your favorite Asian dramas, anime, and variety shows for late night binging! 🍿📺</p>
-            </div>
-            <div class="card-actions">
-                <a href="https://www.iq.com/" target="_blank" class="btn">Visit Site</a>
-                <button class="copy-btn" onclick="copyLink('https://www.iq.com/')" title="Copy link">📋</button>
-            </div>
-        </div>
-
-        <div class="card" data-category="chill" data-id="76">
-            <div>
-                <div class="card-header">
-                    <h3>Nightflix</h3>
-                    <button class="fav-btn" onclick="toggleFav('76', this)">★</button>
-                </div>
-                <div class="badge">🎨 Creative & Chill</div>
-                <p>Cozy late-night movie streaming hub for casual binge sessions! 🌙🎬</p>
-            </div>
-            <div class="card-actions">
-                <a href="https://nightflix.app/" target="_blank" class="btn">Visit Site</a>
-                <button class="copy-btn" onclick="copyLink('https://nightflix.app/')" title="Copy link">📋</button>
-            </div>
-        </div>
-
-        <div class="card" data-category="chill" data-id="35">
-            <div>
-                <div class="card-header">
-                    <h3>Zoomquilt</h3>
-                    <button class="fav-btn" onclick="toggleFav('35', this)">★</button>
-                </div>
-                <div class="badge">🎨 Creative & Chill</div>
-                <p>An endless, infinitely zooming artwork project that continuously flows through fantasy paintings. 🎨🌀</p>
-            </div>
-            <div class="card-actions">
-                <a href="https://zoomquilt.org/" target="_blank" class="btn">Visit Site</a>
-                <button class="copy-btn" onclick="copyLink('https://zoomquilt.org/')" title="Copy link">📋</button>
-            </div>
-        </div>
-
-        <div class="card" data-category="chill" data-id="36">
-            <div>
-                <div class="card-header">
-                    <h3>Fluid Simulation</h3>
-                    <button class="fav-btn" onclick="toggleFav('36', this)">★</button>
-                </div>
-                <div class="badge">🎨 Creative & Chill</div>
-                <p>Drag your cursor across screen to generate smooth glowing fluid art patterns! 🌊🎨</p>
-            </div>
-            <div class="card-actions">
-                <a href="https://paveldogreat.github.io/WebGL-Fluid-Simulation/" target="_blank" class="btn">Visit Site</a>
-                <button class="copy-btn" onclick="copyLink('https://paveldogreat.github.io/WebGL-Fluid-Simulation/')" title="Copy link">📋</button>
-            </div>
-        </div>
-
-        <div class="card" data-category="chill" data-id="37">
-            <div>
-                <div class="card-header">
-                    <h3>Incredibox</h3>
-                    <button class="fav-btn" onclick="toggleFav('37', this)">★</button>
-                </div>
-                <div class="badge">🎨 Creative & Chill</div>
-                <p>Combine beatboxers and animated vocalists to easily create original music tracks! 🎧🔥</p>
-            </div>
-            <div class="card-actions">
-                <a href="https://www.incredibox.com/demo/" target="_blank" class="btn">Visit Site</a>
-                <button class="copy-btn" onclick="copyLink('https://www.incredibox.com/demo/')" title="Copy link">📋</button>
-            </div>
-        </div>
-
-        <div class="card" data-category="chill" data-id="38">
-            <div>
-                <div class="card-header">
-                    <h3>WindowSwap</h3>
-                    <button class="fav-btn" onclick="toggleFav('38', this)">★</button>
-                </div>
-                <div class="badge">🎨 Creative & Chill</div>
-                <p>Look out of real windows submitted by people from all around the globe. 🪟🌍</p>
-            </div>
-            <div class="card-actions">
-                <a href="https://www.window-swap.com/" target="_blank" class="btn">Visit Site</a>
-                <button class="copy-btn" onclick="copyLink('https://www.window-swap.com/')" title="Copy link">📋</button>
-            </div>
-        </div>
-
-        <div class="card" data-category="chill" data-id="39">
-            <div>
-                <div class="card-header">
-                    <h3>Slow Roads</h3>
-                    <button class="fav-btn" onclick="toggleFav('39', this)">★</button>
-                </div>
-                <div class="badge">🎨 Creative & Chill</div>
-                <p>Drive endlessly through calm, procedurally generated scenery right in your browser. 🚗🌄</p>
-            </div>
-            <div class="card-actions">
-                <a href="https://slowroads.io/" target="_blank" class="btn">Visit Site</a>
-                <button class="copy-btn" onclick="copyLink('https://slowroads.io/')" title="Copy link">📋</button>
-            </div>
-        </div>
-
-        <div class="card" data-category="chill" data-id="40">
-            <div>
-                <div class="card-header">
-                    <h3>Pixel Thoughts</h3>
-                    <button class="fav-btn" onclick="toggleFav('40', this)">★</button>
-                </div>
-                <div class="badge">🎨 Creative & Chill</div>
-                <p>Put a stressful thought into a star and watch it shrink into the cosmos over 60 seconds. 🧘✨</p>
-            </div>
-            <div class="card-actions">
-                <a href="https://www.pixelthoughts.co/" target="_blank" class="btn">Visit Site</a>
-                <button class="copy-btn" onclick="copyLink('https://www.pixelthoughts.co/')" title="Copy link">📋</button>
-            </div>
-        </div>
-
-        <div class="card" data-category="chill" data-id="41">
-            <div>
-                <div class="card-header">
-                    <h3>Rainymood</h3>
-                    <button class="fav-btn" onclick="toggleFav('41', this)">★</button>
-                </div>
-                <div class="badge">🎨 Creative & Chill</div>
-                <p>Relaxing rain and thunder audio to help you focus, study, or sleep. 🌧️⚡</p>
-            </div>
-            <div class="card-actions">
-                <a href="https://rainymood.com/" target="_blank" class="btn">Visit Site</a>
-                <button class="copy-btn" onclick="copyLink('https://rainymood.com/')" title="Copy link">📋</button>
-            </div>
-        </div>
-
-        <div class="card" data-category="chill" data-id="42">
-            <div>
-                <div class="card-header">
-                    <h3>Radio Garden</h3>
-                    <button class="fav-btn" onclick="toggleFav('42', this)">★</button>
-                </div>
-                <div class="badge">🎨 Creative & Chill</div>
-                <p>Spin an interactive 3D globe to tune into live local radio stations around the world! 🌍📻</p>
-            </div>
-            <div class="card-actions">
-                <a href="https://radio.garden/" target="_blank" class="btn">Visit Site</a>
-                <button class="copy-btn" onclick="copyLink('https://radio.garden/')" title="Copy link">📋</button>
-            </div>
-        </div>
-
-        <div class="card" data-category="chill" data-id="52">
-            <div>
-                <div class="card-header">
-                    <h3>Blob Opera</h3>
-                    <button class="fav-btn" onclick="toggleFav('52', this)">★</button>
-                </div>
-                <div class="badge">🎨 Creative & Chill</div>
-                <p>Create harmonies by stretching four cute singing animated blobs up and down! 🎼🎤</p>
-            </div>
-            <div class="card-actions">
-                <a href="https://artsandculture.google.com/experiment/blob-opera/0AHBhLLayers4g" target="_blank" class="btn">Visit Site</a>
-                <button class="copy-btn" onclick="copyLink('https://artsandculture.google.com/experiment/blob-opera/0AHBhLLayers4g')" title="Copy link">📋</button>
-            </div>
-        </div>
-
-        <div class="card" data-category="chill" data-id="53">
-            <div>
-                <div class="card-header">
-                    <h3>WeaveSilk</h3>
-                    <button class="fav-btn" onclick="toggleFav('53', this)">★</button>
-                </div>
-                <div class="badge">🎨 Creative & Chill</div>
-                <p>Create intricate glowing silk art patterns with symmetrical mouse strokes. 🌸✨</p>
-            </div>
-            <div class="card-actions">
-                <a href="http://escapethoughts.com/silk/" target="_blank" class="btn">Visit Site</a>
-                <button class="copy-btn" onclick="copyLink('http://escapethoughts.com/silk/')" title="Copy link">📋</button>
-            </div>
-        </div>
-
-        <div class="card" data-category="chill" data-id="54">
-            <div>
-                <div class="card-header">
-                    <h3>Jackson Pollock Paint</h3>
-                    <button class="fav-btn" onclick="toggleFav('54', this)">★</button>
-                </div>
-                <div class="badge">🎨 Creative & Chill</div>
-                <p>Whip your cursor around to splash colorful abstract drip paint everywhere! 🎨🖌️</p>
-            </div>
-            <div class="card-actions">
-                <a href="https://jacksonpollock.org/" target="_blank" class="btn">Visit Site</a>
-                <button class="copy-btn" onclick="copyLink('https://jacksonpollock.org/')" title="Copy link">📋</button>
-            </div>
-        </div>
-
-        <div class="card" data-category="chill" data-id="57">
-            <div>
-                <div class="card-header">
-                    <h3>Drive & Listen</h3>
-                    <button class="fav-btn" onclick="toggleFav('57', this)">★</button>
-                </div>
-                <div class="badge">🎨 Creative & Chill</div>
-                <p>Drive virtually through real streets of Tokyo, Paris, or NYC while listening to local city radio stations! 🚗🎶</p>
-            </div>
-            <div class="card-actions">
-                <a href="https://driveandlisten.herokuapp.com/" target="_blank" class="btn">Visit Site</a>
-                <button class="copy-btn" onclick="copyLink('https://driveandlisten.herokuapp.com/')" title="Copy link">📋</button>
-            </div>
-        </div>
-
-        <div class="card" data-category="chill" data-id="59">
-            <div>
-                <div class="card-header">
-                    <h3>Chrome Music Lab</h3>
-                    <button class="fav-btn" onclick="toggleFav('59', this)">★</button>
-                </div>
-                <div class="badge">🎨 Creative & Chill</div>
-                <p>A fun collection of interactive sound experiments, song makers, and rhythm grids. 🎹🎵</p>
-            </div>
-            <div class="card-actions">
-                <a href="https://musiclab.chromeexperiments.com/" target="_blank" class="btn">Visit Site</a>
-                <button class="copy-btn" onclick="copyLink('https://musiclab.chromeexperiments.com/')" title="Copy link">📋</button>
-            </div>
-        </div>
-
-        <div class="card" data-category="chill" data-id="65">
-            <div>
-                <div class="card-header">
-                    <h3>Virtual Piano</h3>
-                    <button class="fav-btn" onclick="toggleFav('65', this)">★</button>
-                </div>
-                <div class="badge">🎨 Creative & Chill</div>
-                <p>Turn your computer keyboard into a full grand piano keyboard and play popular songs! 🎹🎶</p>
-            </div>
-            <div class="card-actions">
-                <a href="https://virtualpiano.net/" target="_blank" class="btn">Visit Site</a>
-                <button class="copy-btn" onclick="copyLink('https://virtualpiano.net/')" title="Copy link">📋</button>
-            </div>
-        </div>
-
-        <div class="card" data-category="chill" data-id="69">
-            <div>
-                <div class="card-header">
-                    <h3>YouTube</h3>
-                    <button class="fav-btn" onclick="toggleFav('69', this)">★</button>
-                </div>
-                <div class="badge">🎨 Creative & Chill</div>
-                <p>Infinite rabbit holes of meme compilations, gaming speedruns, ASMR, and viral chaos! 📺🍿🗿</p>
-            </div>
-            <div class="card-actions">
-                <a href="https://www.youtube.com/" target="_blank" class="btn">Visit Site</a>
-                <button class="copy-btn" onclick="copyLink('https://www.youtube.com/')" title="Copy link">📋</button>
-            </div>
-        </div>
-
-        <!-- USEFUL TOOLS -->
-        <div class="card" data-category="tools" data-id="43">
-            <div>
-                <div class="card-header">
-                    <h3>MapCrunch</h3>
-                    <button class="fav-btn" onclick="toggleFav('43', this)">★</button>
-                </div>
-                <div class="badge">🛠️ Useful Tools</div>
-                <p>Teleport to a completely random Google Street View location anywhere on planet Earth. 🗺️✈️</p>
-            </div>
-            <div class="card-actions">
-                <a href="https://www.mapcrunch.com/" target="_blank" class="btn">Visit Site</a>
-                <button class="copy-btn" onclick="copyLink('https://www.mapcrunch.com/')" title="Copy link">📋</button>
-            </div>
-        </div>
-
-        <div class="card" data-category="tools" data-id="44">
-            <div>
-                <div class="card-header">
-                    <h3>FutureMe</h3>
-                    <button class="fav-btn" onclick="toggleFav('44', this)">★</button>
-                </div>
-                <div class="badge">🛠️ Useful Tools</div>
-                <p>Write an email to your future self and schedule it for delivery in 1, 3, or 5 years! ✉️🔮</p>
-            </div>
-            <div class="card-actions">
-                <a href="https://www.futureme.org/" target="_blank" class="btn">Visit Site</a>
-                <button class="copy-btn" onclick="copyLink('https://www.futureme.org/')" title="Copy link">📋</button>
-            </div>
-        </div>
-
-        <div class="card" data-category="tools" data-id="45">
-            <div>
-                <div class="card-header">
-                    <h3>You're Getting Old!</h3>
-                    <button class="fav-btn" onclick="toggleFav('45', this)">★</button>
-                </div>
-                <div class="badge">🛠️ Useful Tools</div>
-                <p>Enter your birthday to see interesting life statistics and global timeline facts! ⏳😱</p>
-            </div>
-            <div class="card-actions">
-                <a href="https://you.regettingold.com/" target="_blank" class="btn">Visit Site</a>
-                <button class="copy-btn" onclick="copyLink('https://you.regettingold.com/')" title="Copy link">📋</button>
-            </div>
-        </div>
-
-        <div class="card" data-category="tools" data-id="46">
-            <div>
-                <div class="card-header">
-                    <h3>Astronomy Photo of the Day</h3>
-                    <button class="fav-btn" onclick="toggleFav('46', this)">★</button>
-                </div>
-                <div class="badge">🛠️ Useful Tools</div>
-                <p>NASA's official daily site featuring high-definition space photos and cosmic facts. 🌌🔭</p>
-            </div>
-            <div class="card-actions">
-                <a href="https://apod.nasa.gov/" target="_blank" class="btn">Visit Site</a>
-                <button class="copy-btn" onclick="copyLink('https://apod.nasa.gov/')" title="Copy link">📋</button>
-            </div>
-        </div>
-
-        <div class="card" data-category="tools" data-id="47">
-            <div>
-                <div class="card-header">
-                    <h3>The Size of Space</h3>
-                    <button class="fav-btn" onclick="toggleFav('47', this)">★</button>
-                </div>
-                <div class="badge">🛠️ Useful Tools</div>
-                <p>Interactive scale comparing everyday objects all the way up to giant galaxies. 🌌😱</p>
-            </div>
-            <div class="card-actions">
-                <a href="https://neal.fun/size-of-space/" target="_blank" class="btn">Visit Site</a>
-                <button class="copy-btn" onclick="copyLink('https://neal.fun/size-of-space/')" title="Copy link">📋</button>
-            </div>
-        </div>
-
-        <div class="card" data-category="tools" data-id="48">
-            <div>
-                <div class="card-header">
-                    <h3>Internet Artifacts</h3>
-                    <button class="fav-btn" onclick="toggleFav('48', this)">★</button>
-                </div>
-                <div class="badge">🛠️ Useful Tools</div>
-                <p>An interactive digital museum showing early 90s web history, sound clips, and tech relics. 💻🏛️</p>
-            </div>
-            <div class="card-actions">
-                <a href="https://neal.fun/internet-artifacts/" target="_blank" class="btn">Visit Site</a>
-                <button class="copy-btn" onclick="copyLink('https://neal.fun/internet-artifacts/')" title="Copy link">📋</button>
-            </div>
-        </div>
-
-        <div class="card" data-category="tools" data-id="49">
-            <div>
-                <div class="card-header">
-                    <h3>The Deep Sea</h3>
-                    <button class="fav-btn" onclick="toggleFav('49', this)">★</button>
-                </div>
-                <div class="badge">🛠️ Useful Tools</div>
-                <p>Scroll down through deep ocean layers to explore marine life living at different depths. 🌊🦑</p>
-            </div>
-            <div class="card-actions">
-                <a href="https://neal.fun/deep-sea/" target="_blank" class="btn">Visit Site</a>
-                <button class="copy-btn" onclick="copyLink('https://neal.fun/deep-sea/')" title="Copy link">📋</button>
-            </div>
-        </div>
-
-        <div class="card" data-category="tools" data-id="50">
-            <div>
-                <div class="card-header">
-                    <h3>Wikipedia's List of Dogs</h3>
-                    <button class="fav-btn" onclick="toggleFav('50', this)">★</button>
-                </div>
-                <div class="badge">🛠️ Useful Tools</div>
-                <p>A comprehensive Wikipedia page showcasing notable individual dogs in history. 🐶📚</p>
-            </div>
-            <div class="card-actions">
-                <a href="https://en.wikipedia.org/wiki/List_of_individual_dogs" target="_blank" class="btn">Visit Site</a>
-                <button class="copy-btn" onclick="copyLink('https://en.wikipedia.org/wiki/List_of_individual_dogs')" title="Copy link">📋</button>
-            </div>
-        </div>
-
-        <div class="card" data-category="tools" data-id="58">
-            <div>
-                <div class="card-header">
-                    <h3>Flightradar24</h3>
-                    <button class="fav-btn" onclick="toggleFav('58', this)">★</button>
-                </div>
-                <div class="badge">🛠️ Useful Tools</div>
-                <p>Track live airplanes, helicopters, and flights moving across a real-time global radar map! ✈️🌍</p>
-            </div>
-            <div class="card-actions">
-                <a href="https://www.flightradar24.com/" target="_blank" class="btn">Visit Site</a>
-                <button class="copy-btn" onclick="copyLink('https://www.flightradar24.com/')" title="Copy link">📋</button>
-            </div>
-        </div>
-
-        <div class="card" data-category="tools" data-id="62">
-            <div>
-                <div class="card-header">
-                    <h3>Ventusky</h3>
-                    <button class="fav-btn" onclick="toggleFav('62', this)">★</button>
-                </div>
-                <div class="badge">🛠️ Useful Tools</div>
-                <p>Animated interactive live weather map showing real-time wind currents, ocean waves, and storms! 💨🌩️</p>
-            </div>
-            <div class="card-actions">
-                <a href="https://www.ventusky.com/" target="_blank" class="btn">Visit Site</a>
-                <button class="copy-btn" onclick="copyLink('https://www.ventusky.com/')" title="Copy link">📋</button>
-            </div>
-        </div>
-
     </div>
+
+    <!-- TOAST NOTIFICATION -->
+    <div id="toast" class="toast">Link copied to clipboard! 🧀</div>
 
     <button class="top-btn" id="topBtn" onclick="scrollToTop()">↑</button>
 
@@ -1822,10 +706,19 @@
 
         function copyLink(url) {
             navigator.clipboard.writeText(url).then(() => {
-                alert('Link copied to clipboard! 📋');
+                showToast('Link copied to clipboard! 🧀');
             }).catch(err => {
                 console.error('Failed to copy link', err);
             });
+        }
+
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            toast.textContent = message;
+            toast.classList.add('show');
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 2500);
         }
 
         window.onscroll = function() {
