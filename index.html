@@ -10,17 +10,22 @@
             --primary-hover: #ff6b81;
             --accent-blue: #70a1ff;
             --accent-yellow: #ffeaa7;
-            --bg-dark: #0f0c20;
-            --card-bg: rgba(25, 23, 42, 0.75);
-            --card-border: rgba(255, 255, 255, 0.12);
+            --bg-dark: #0b0914;
+            --card-bg: rgba(23, 20, 38, 0.7);
+            --card-border: rgba(255, 255, 255, 0.08);
+            --card-hover-border: rgba(255, 71, 87, 0.5);
+        }
+
+        * {
+            box-sizing: border-box;
         }
 
         body {
-            font-family: 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             background-color: var(--bg-dark);
             color: #ffffff;
             margin: 0;
-            padding: 20px;
+            padding: 24px 16px;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -43,11 +48,11 @@
 
         .liquid-layer {
             position: absolute;
-            width: 500px;
-            height: 500px;
+            width: 550px;
+            height: 550px;
             border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
-            filter: blur(70px);
-            opacity: 0.4;
+            filter: blur(80px);
+            opacity: 0.35;
             animation: morph 12s infinite ease-in-out alternate;
         }
 
@@ -73,7 +78,7 @@
             transform: translate(-50%, -50%);
             animation-duration: 16s;
             animation-delay: -6s;
-            opacity: 0.25;
+            opacity: 0.2;
         }
 
         @keyframes morph {
@@ -83,59 +88,61 @@
             }
             50% {
                 border-radius: 70% 30% 50% 50% / 30% 60% 40% 70%;
-                transform: rotate(180deg) scale(1.2);
+                transform: rotate(180deg) scale(1.15);
             }
             100% {
                 border-radius: 30% 70% 30% 70% / 50% 30% 70% 40%;
-                transform: rotate(360deg) scale(0.9);
+                transform: rotate(360deg) scale(0.95);
             }
         }
 
         /* Hero Section */
         .hero {
             text-align: center;
-            background: rgba(255, 71, 87, 0.2);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            padding: 35px 20px;
-            border-radius: 24px;
-            margin-bottom: 25px;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+            background: rgba(255, 71, 87, 0.12);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            padding: 40px 24px;
+            border-radius: 28px;
+            margin-bottom: 30px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
             width: 100%;
             max-width: 900px;
-            box-sizing: border-box;
         }
 
         .hero h1 {
             margin: 0 0 12px 0;
-            font-size: 2.2rem;
-            text-shadow: 2px 2px 6px rgba(0,0,0,0.6);
-            color: #ffffff;
+            font-size: 2.4rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #ffffff 40%, var(--accent-yellow));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
         }
 
         .hero p {
-            font-size: 1.15rem;
-            margin-bottom: 20px;
-            color: #f1f2f6;
+            font-size: 1.1rem;
+            margin: 0 0 24px 0;
+            color: #d1d8e0;
         }
 
         .big-btn {
             background: linear-gradient(135deg, #ffffff, #ffeaa7);
             color: #d63031;
-            font-size: 1.2rem;
+            font-size: 1.15rem;
             font-weight: 800;
-            padding: 14px 32px;
+            padding: 16px 36px;
             border: none;
             border-radius: 50px;
             cursor: pointer;
-            box-shadow: 0 6px 20px rgba(255, 71, 87, 0.4);
+            box-shadow: 0 8px 25px rgba(255, 71, 87, 0.35);
             transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
 
         .big-btn:hover {
-            transform: translateY(-3px) scale(1.05);
-            box-shadow: 0 10px 25px rgba(255, 71, 87, 0.6);
+            transform: translateY(-4px) scale(1.03);
+            box-shadow: 0 12px 30px rgba(255, 71, 87, 0.55);
             background: #ffffff;
         }
 
@@ -146,8 +153,8 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 15px;
-            margin-bottom: 25px;
+            gap: 18px;
+            margin-bottom: 30px;
         }
 
         /* Search Bar */
@@ -159,22 +166,26 @@
 
         .search-input {
             width: 100%;
-            padding: 16px 25px;
-            font-size: 1.1rem;
-            border-radius: 30px;
-            border: 2px solid rgba(255, 255, 255, 0.2);
-            background-color: rgba(20, 18, 38, 0.85);
+            padding: 18px 28px;
+            font-size: 1.05rem;
+            border-radius: 35px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            background-color: rgba(18, 15, 33, 0.85);
             backdrop-filter: blur(12px);
             color: #ffffff;
             outline: none;
-            box-shadow: 0 6px 15px rgba(0,0,0,0.4);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
             transition: all 0.25s ease;
-            box-sizing: border-box;
+        }
+
+        .search-input::placeholder {
+            color: #747d8c;
         }
 
         .search-input:focus {
             border-color: var(--primary);
-            box-shadow: 0 0 20px rgba(255, 71, 87, 0.5);
+            box-shadow: 0 0 25px rgba(255, 71, 87, 0.45);
+            background-color: rgba(22, 19, 41, 0.95);
         }
 
         /* Categories Bar */
@@ -187,20 +198,20 @@
         }
 
         .tab-btn {
-            background: rgba(255, 255, 255, 0.08);
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            color: #d1d8e0;
-            padding: 8px 18px;
-            border-radius: 20px;
-            font-size: 0.92rem;
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            color: #a4b0be;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-size: 0.9rem;
             font-weight: 600;
             cursor: pointer;
             transition: all 0.2s ease;
-            backdrop-filter: blur(5px);
+            backdrop-filter: blur(8px);
         }
 
         .tab-btn:hover {
-            background: rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.15);
             color: #ffffff;
             transform: translateY(-2px);
         }
@@ -209,14 +220,15 @@
             background: var(--primary);
             color: #ffffff;
             border-color: var(--primary);
-            box-shadow: 0 4px 12px rgba(255, 71, 87, 0.4);
+            box-shadow: 0 6px 16px rgba(255, 71, 87, 0.4);
         }
 
         /* Site Counter */
         .stats-counter {
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             color: #a4b0be;
             font-weight: 600;
+            letter-spacing: 0.3px;
         }
 
         .no-results {
@@ -231,7 +243,7 @@
         /* Grid section for cards */
         .grid-container {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(285px, 1fr));
             gap: 22px;
             width: 100%;
             max-width: 1200px;
@@ -239,23 +251,22 @@
 
         .card {
             background-color: var(--card-bg);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
             border: 1px solid var(--card-border);
-            border-radius: 16px;
-            padding: 22px;
+            border-radius: 20px;
+            padding: 24px;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.35);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
             transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.25s ease, border-color 0.25s ease;
-            position: relative;
         }
 
         .card:hover {
             transform: translateY(-6px);
-            box-shadow: 0 12px 24px rgba(255, 71, 87, 0.25);
-            border-color: rgba(255, 71, 87, 0.5);
+            box-shadow: 0 16px 32px rgba(255, 71, 87, 0.2);
+            border-color: var(--card-hover-border);
         }
 
         .card-header {
@@ -269,23 +280,24 @@
         .card h3 {
             margin: 0;
             color: var(--accent-blue);
-            font-size: 1.2rem;
-            line-height: 1.3;
+            font-size: 1.18rem;
+            font-weight: 700;
+            line-height: 1.35;
         }
 
         .fav-btn {
             background: none;
             border: none;
-            font-size: 1.25rem;
+            font-size: 1.3rem;
             cursor: pointer;
-            color: rgba(255, 255, 255, 0.3);
+            color: rgba(255, 255, 255, 0.25);
             transition: transform 0.2s, color 0.2s;
             padding: 0;
             line-height: 1;
         }
 
         .fav-btn:hover {
-            transform: scale(1.2);
+            transform: scale(1.25);
             color: var(--accent-yellow);
         }
 
@@ -298,25 +310,26 @@
             font-size: 0.72rem;
             font-weight: 700;
             text-transform: uppercase;
-            padding: 3px 10px;
-            border-radius: 12px;
-            background: rgba(255, 255, 255, 0.1);
+            padding: 4px 12px;
+            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.08);
             color: #d1d8e0;
-            margin-bottom: 10px;
+            margin-bottom: 12px;
             letter-spacing: 0.5px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
         }
 
         .card p {
-            font-size: 0.93rem;
+            font-size: 0.92rem;
             color: #ced6e0;
             flex-grow: 1;
-            line-height: 1.45;
-            margin: 0 0 15px 0;
+            line-height: 1.5;
+            margin: 0 0 18px 0;
         }
 
         .card-actions {
             display: flex;
-            gap: 8px;
+            gap: 10px;
             align-items: center;
         }
 
@@ -326,31 +339,34 @@
             background-color: var(--primary);
             color: white;
             text-decoration: none;
-            padding: 10px 14px;
-            border-radius: 10px;
+            padding: 11px 16px;
+            border-radius: 12px;
             text-align: center;
             font-weight: 700;
-            font-size: 0.95rem;
-            transition: background-color 0.2s, transform 0.1s;
+            font-size: 0.92rem;
+            box-shadow: 0 4px 12px rgba(255, 71, 87, 0.3);
+            transition: background-color 0.2s, transform 0.15s, box-shadow 0.2s;
         }
 
         .btn:hover {
             background-color: var(--primary-hover);
+            box-shadow: 0 6px 16px rgba(255, 71, 87, 0.45);
         }
 
         .copy-btn {
-            background: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.15);
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.12);
             color: white;
-            padding: 10px 12px;
-            border-radius: 10px;
+            padding: 11px 14px;
+            border-radius: 12px;
             cursor: pointer;
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             transition: all 0.2s;
         }
 
         .copy-btn:hover {
-            background: rgba(255, 255, 255, 0.25);
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-1px);
         }
 
         .top-btn {
@@ -360,12 +376,12 @@
             background: var(--primary);
             color: white;
             border: none;
-            width: 45px;
-            height: 45px;
+            width: 48px;
+            height: 48px;
             border-radius: 50%;
             font-size: 1.3rem;
             cursor: pointer;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
             display: none;
             align-items: center;
             justify-content: center;
@@ -492,6 +508,21 @@
         </div>
 
         <!-- GAMES & INTERACTIVE -->
+        <div class="card" data-category="games" data-id="74">
+            <div>
+                <div class="card-header">
+                    <h3>Chess.com</h3>
+                    <button class="fav-btn" onclick="toggleFav('74', this)">★</button>
+                </div>
+                <div class="badge">🎮 Games</div>
+                <p>Time for 1. e4! Play online chess, test your tactics puzzles, and flex those grandmaster moves. ♟️🧠</p>
+            </div>
+            <div class="card-actions">
+                <a href="https://www.chess.com/" target="_blank" class="btn">Visit Site</a>
+                <button class="copy-btn" onclick="copyLink('https://www.chess.com/')" title="Copy link">📋</button>
+            </div>
+        </div>
+
         <div class="card" data-category="games" data-id="5">
             <div>
                 <div class="card-header">
@@ -808,6 +839,66 @@
         </div>
 
         <!-- QUIRKY & NOVELTY -->
+        <div class="card" data-category="quirky" data-id="79">
+            <div>
+                <div class="card-header">
+                    <h3>Heeeeeeeey!</h3>
+                    <button class="fav-btn" onclick="toggleFav('79', this)">★</button>
+                </div>
+                <div class="badge">🌀 Quirky & Novelty</div>
+                <p>A glorious useless website that constantly yells HEEEEEEEY! and HOOOOOO! back and forth forever. 🗣️🔊</p>
+            </div>
+            <div class="card-actions">
+                <a href="https://heeeeeeeey.com/" target="_blank" class="btn">Visit Site</a>
+                <button class="copy-btn" onclick="copyLink('https://heeeeeeeey.com/')" title="Copy link">📋</button>
+            </div>
+        </div>
+
+        <div class="card" data-category="quirky" data-id="80">
+            <div>
+                <div class="card-header">
+                    <h3>Procatinator</h3>
+                    <button class="fav-btn" onclick="toggleFav('80', this)">★</button>
+                </div>
+                <div class="badge">🌀 Quirky & Novelty</div>
+                <p>Combines random vibe-filled cat GIFs with groovy music tracks for maximum procrastination. 🐱🎶 Peak internet!</p>
+            </div>
+            <div class="card-actions">
+                <a href="http://procatinator.com/" target="_blank" class="btn">Visit Site</a>
+                <button class="copy-btn" onclick="copyLink('http://procatinator.com/')" title="Copy link">📋</button>
+            </div>
+        </div>
+
+        <div class="card" data-category="quirky" data-id="81">
+            <div>
+                <div class="card-header">
+                    <h3>Sometimes Red Sometimes Blue</h3>
+                    <button class="fav-btn" onclick="toggleFav('81', this)">★</button>
+                </div>
+                <div class="badge">🌀 Quirky & Novelty</div>
+                <p>Is the screen red? Is it blue? Refresh to find out! Pure minimalist web suspense. 🔴🔵</p>
+            </div>
+            <div class="card-actions">
+                <a href="https://www.sometimesredsometimesblue.com/" target="_blank" class="btn">Visit Site</a>
+                <button class="copy-btn" onclick="copyLink('https://www.sometimesredsometimesblue.com/')" title="Copy link">📋</button>
+            </div>
+        </div>
+
+        <div class="card" data-category="quirky" data-id="77">
+            <div>
+                <div class="card-header">
+                    <h3>Make Everything OK</h3>
+                    <button class="fav-btn" onclick="toggleFav('77', this)">★</button>
+                </div>
+                <div class="badge">🌀 Quirky & Novelty</div>
+                <p>Feeling overwhelmed? Just press the magic button and watch it fix all your problems with a loading bar. 🔘✨</p>
+            </div>
+            <div class="card-actions">
+                <a href="https://make-everything-ok.com/" target="_blank" class="btn">Visit Site</a>
+                <button class="copy-btn" onclick="copyLink('https://make-everything-ok.com/')" title="Copy link">📋</button>
+            </div>
+        </div>
+
         <div class="card" data-category="quirky" data-id="21">
             <div>
                 <div class="card-header">
@@ -1139,6 +1230,51 @@
         </div>
 
         <!-- CREATIVE & CHILL -->
+        <div class="card" data-category="chill" data-id="78">
+            <div>
+                <div class="card-header">
+                    <h3>Radiooooo</h3>
+                    <button class="fav-btn" onclick="toggleFav('78', this)">★</button>
+                </div>
+                <div class="badge">🎨 Creative & Chill</div>
+                <p>Pick any country on a 3D globe and choose a decade from the 1900s to today to stream real retro radio hits! 🌍📻🎶</p>
+            </div>
+            <div class="card-actions">
+                <a href="https://radiooooo.com/" target="_blank" class="btn">Visit Site</a>
+                <button class="copy-btn" onclick="copyLink('https://radiooooo.com/')" title="Copy link">📋</button>
+            </div>
+        </div>
+
+        <div class="card" data-category="chill" data-id="75">
+            <div>
+                <div class="card-header">
+                    <h3>iQiyi</h3>
+                    <button class="fav-btn" onclick="toggleFav('75', this)">★</button>
+                </div>
+                <div class="badge">🎨 Creative & Chill</div>
+                <p>Stream your favorite Asian dramas, anime, and variety shows for late night binging! 🍿📺</p>
+            </div>
+            <div class="card-actions">
+                <a href="https://www.iq.com/" target="_blank" class="btn">Visit Site</a>
+                <button class="copy-btn" onclick="copyLink('https://www.iq.com/')" title="Copy link">📋</button>
+            </div>
+        </div>
+
+        <div class="card" data-category="chill" data-id="76">
+            <div>
+                <div class="card-header">
+                    <h3>Nightflix</h3>
+                    <button class="fav-btn" onclick="toggleFav('76', this)">★</button>
+                </div>
+                <div class="badge">🎨 Creative & Chill</div>
+                <p>Cozy late-night movie streaming hub for casual binge sessions! 🌙🎬</p>
+            </div>
+            <div class="card-actions">
+                <a href="https://nightflix.app/" target="_blank" class="btn">Visit Site</a>
+                <button class="copy-btn" onclick="copyLink('https://nightflix.app/')" title="Copy link">📋</button>
+            </div>
+        </div>
+
         <div class="card" data-category="chill" data-id="35">
             <div>
                 <div class="card-header">
